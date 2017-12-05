@@ -53,8 +53,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimshell', { 'rev': '3787e5' }
 Plug 'godlygeek/tabular'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "command-line fuzzy finder
-Plug 'junegunn/fzf.vim' 
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "command-line fuzzy finder
+"Plug 'junegunn/fzf.vim' 
 
 " Tree Dir
 Plug 'scrooloose/nerdtree'
@@ -92,28 +92,20 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/neossh.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "Dark powered asynchronous completion framework
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 let g:vimfiler_as_default_explorer = 1
 
 " Syntax highlight Check
 Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale'                   "Asynchronous Lint Engine
+"Plug 'w0rp/ale'                   "Asynchronous Lint Engine
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'on_ft' : 'go', 'loadconf_before' : 1}
 Plug 'vim-ruby/vim-ruby'
 Plug 'udalov/kotlin-vim'
 
 " Enable completion where available.
-let g:ale_completion_enabled = 1
+"let g:ale_completion_enabled = 1
 " Put these lines at the very end of your vimrc file.
 
 " Load all plugins now.
@@ -126,37 +118,34 @@ silent! helptags ALL
 " Put this in vimrc or a plugin file of your own.
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 
-let g:ale_fixers = {
-\	'javascript': ['eslint'],
-\	'css': ['stylelint'],
-\}
+" let g:ale_fixers = {
+" \	'javascript': ['eslint'],
+" \	'css': ['stylelint'],
+" \}
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
-let g:ale_fix_on_save = 1
-let g:neomake_kotlin_enabled_makers = ['kotlinc']
+" let g:ale_fix_on_save = 1
+" let g:neomake_kotlin_enabled_makers = ['kotlinc']
 " Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
-let g:ale_linters = {
-\	'javascript': ['eslint'],
-\	'css': ['stylelint'],
-\}
-let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '▶'
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_linters = {
+" \	'javascript': ['eslint'],
+" \	'css': ['stylelint'],
+" \}
+" let g:ale_fix_on_save = 1
+" let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '●'
+" let g:ale_sign_warning = '▶'
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'StanAngeloff/php.vim'
 Plug '2072/PHP-Indenting-for-VIm', { 'on_ft' : 'php'}
-Plug 'shawncplus/phpcomplete.vim'
+" Plug 'shawncplus/phpcomplete.vim'
 Plug 'rafi/vim-phpspec', { 'on_ft' : 'php'}
 Plug 'lvht/phpfold.vim', { 'on_ft' : 'php', 'build' : ['composer', 'install']}
-
-"let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-"let g:deoplete#ignore_sources.php = ['omni']
 
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
@@ -209,7 +198,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='papercolor'
 
 " Code annotaion
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter' "annotation
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -230,46 +219,15 @@ let g:gitgutter_max_signs = 500  " default value
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-" Vim Markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'joker1007/vim-markdown-quote-syntax',{ 'on_ft' : 'markdown'}
-Plug 'mzlogin/vim-markdown-toc',{ 'on_ft' : 'markdown'}
-Plug 'iamcco/mathjax-support-for-mkdp',{ 'on_ft' : 'markdown'}
-Plug 'iamcco/markdown-preview.vim',{ 'on_ft' : 'markdown'}
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_folding_style_pythonic = 1
-let g:markdown_minlines = 100
-let g:markdown_syntax_conceal = 0
-let g:markdown_enable_mappings = 0
-let g:markdown_enable_insert_mode_leader_mappings = 0
-let g:markdown_enable_spell_checking = 0
-let g:markdown_quote_syntax_filetypes = {
-            \ "vim" : {
-            \   "start" : "\\%(vim\\|viml\\)",
-            \},
-            \}
-
-if executable('firefox')
-    let g:mkdp_path_to_chrome= get(g:, 'mkdp_path_to_chrome', 'firefox')
-endif
-
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
-Plug 'tweekmonster/deoplete-clang2'
 Plug 'slashmili/alchemist.vim', {'on_ft' : 'elixir'}
-Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent',{ 'on_ft' : 'python'}
-Plug 'zchee/deoplete-jedi', { 'on_ft' : 'python'}
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/nvim-typescript'
 Plug 'sukima/xmledit',{ 'on_ft' : ['html' , 'xhtml' , 'xml' , 'jinja']}
 Plug 'Valloric/MatchTagAlways',{ 'on_ft' : ['html' , 'xhtml' , 'xml' , 'jinja']}
-Plug 'wsdjeg/vim-dict',{ 'on_ft' : 'java'}
-Plug 'wsdjeg/java_getset.vim',{ 'on_ft' : 'java', 'loadconf' : 1}
-Plug 'wsdjeg/JavaUnit.vim',{ 'on_ft' : 'java'}
 Plug 'vim-jp/vim-java',{ 'on_ft' : 'java'}
-Plug 'artur-shaik/vim-javacomplete2',{ 'on_ft' : ['java','jsp'], 'loadconf' : 1}
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 
@@ -281,22 +239,6 @@ let g:user_emmet_settings = {
  		\ }
 
 autocmd FileType typescript setlocal omnifunc=tsuquyomi#complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType java call s:java_mappings()
-  set tags +=~/others/openjdksrc/java/tags
-  set tags +=~/others/openjdksrc/javax/tags
-  let g:neoformat_enabled_java = ['googlefmt']
-  let g:neoformat_java_googlefmt = {
-        \ 'exe': 'java',
-        \ 'args': '-jar',
-        \ 'replace': 0,
-        \ 'stdin': 0,
-        \ 'no_append': 0,
-        \ }
-  try
-    let g:neoformat_enabled_java += neoformat#formatters#java#enabled()
-  catch
-  endtry
 
 augroup VimCSS3Syntax
   autocmd!
@@ -306,12 +248,10 @@ augroup END
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'on_ft' : ['javascript']}
-Plug 'carlitux/deoplete-ternjs',{ 'on_ft' : ['javascript']}
 Plug 'othree/javascript-libraries-syntax.vim', { 'on_ft' : ['javascript','coffee','ls','typescript']}
 Plug 'mmalecki/vim-node.js',                   { 'on_ft' : ['javascript']}
 Plug 'othree/yajs.vim',                        { 'on_ft' : ['javascript']}
 Plug 'othree/es.next.syntax.vim',              { 'on_ft' : ['javascript']}
-Plug 'maksimr/vim-jsbeautify',                 { 'on_ft' : ['javascript']}
 
 let s:auto_fix = 0
 let g:neomake_javascript_enabled_makers = ['eslint']
@@ -340,17 +280,6 @@ set conceallevel=1
 Plug 'mxw/vim-jsx'
 
 let g:jsx_ext_required = 0
-
-" Prettier
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
-
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#trailing_comma = 'es5'
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
 " Neosnippet Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -382,6 +311,5 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "Configure
 "highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
 "highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
-
 
 call plug#end()
