@@ -7,13 +7,15 @@ git clone --depth 1 https://github.com/imxieke/XieVim
 
 cd XieVim 
 
-bash install.sh install
+curl -s https://raw.githubusercontent.com/imxieke/XieVim/master/install.sh > install.sh
+bash install.sh install 
 ```
 
 ## uninstall
 ```
 cd XieVim
 
+curl -s https://raw.githubusercontent.com/imxieke/XieVim/master/install.sh > install.sh
 bash install.sh uninstall
 ```
 
