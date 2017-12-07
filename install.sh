@@ -26,6 +26,8 @@ uninstall(){
 
 		if [ -d $HOME/.config/nvim ]; then
   	  			rm -fr $HOME/.config/nvim
+  	  			rm -fr $HOME/.vim
+  	  			rm -fr $HOME/.vimrc
 				rm -fr /bin/nvim
 		 fi
 
@@ -33,7 +35,7 @@ uninstall(){
 	 	echo "$HOME/.config/nvim is remove "
 	 	echo "/bin/nvim is remove "
         echo "Neovim Already uninstall"
-     fi 
+     fi
 }
 
 case $1 in
