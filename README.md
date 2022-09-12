@@ -71,3 +71,16 @@ pacman -S ripgrep fd lua the_silver_searcher
 npm i -g neovim pyright
 pip3 install neovim pynvim
 ```
+
+
+## Install and Remove
+
+### Install
+```
+git clone --depth 1 https://github.com/imxieke/NeoCode.git ~/.config/nvim
+```
+
+## Remove
+```
+rm -fr ~/.config/nvim
+```
