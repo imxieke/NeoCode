@@ -81,5 +81,4 @@ require('litee.bookmarks').setup({})
 -- require('litee.lsp.handlers').ws_lsp_handler(), {}
 -- )
 
-
 vim.opt.runtimepath = vim.opt.runtimepath + '/Users/imxieke/Code/Project/Git/vscode-snippets'

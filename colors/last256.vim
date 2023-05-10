@@ -354,6 +354,7 @@ exe "hi! MK2"       . s:fg_background . s:bg_purple . s:fmt_none
 exe "hi! MK3"       . s:fg_background . s:bg_orange . s:fmt_none
 exe "hi! Important" . s:fg_background . s:bg_red    . s:fmt_bold
 exe "hi! FIXME"     . s:fg_addfg      . s:bg_red    . s:fmt_bold
+
 "add autocommands
 autocmd BufWinEnter * call matchadd("Important","!Important!")
 autocmd BufWinEnter * call matchadd("MK1","!MARK1")

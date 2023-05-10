@@ -47,8 +47,11 @@ vim.opt.ignorecase = true -- 搜索忽略大小写
 vim.opt.incsearch = true -- Show search results while typing 开启增量搜索
 vim.opt.showcmd = true
 vim.cmd('set nocompatible') -- 禁用vi兼容模式
-vim.cmd('set nobackup') -- 设置取消备份 禁止临时文件生成
+-- vim.cmd('set nobackup') -- 设置取消备份 禁止临时文件生成
+vim.opt.backup = false
 vim.cmd('set nowritebackup') -- 设置取消备份 禁止临时文件生成
+vim.opt.writebackup = false
+-- vim.opt.noswapfile=true
 vim.cmd('set noswapfile') -- no swap file generate
 -- vim.opt.modeline     = true
 vim.opt.list = true -- 显示不可见字符 如 tab
@@ -58,7 +61,6 @@ vim.opt.mouse = "a" -- enable mouse interaction
 vim.opt.modifiable = true
 -- 似乎是自动更新文件时间间隔 ms
 vim.opt.updatetime = 300
-
 vim.opt.wildmenu = true -- vim命令自动补全
 -- 自动补全 cmp 依赖
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}

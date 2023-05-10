@@ -93,6 +93,18 @@ keymap("i", "<A-p>", "<CMD>:Telescope find_files<CR>")
 keymap("n", "<A-f>", "<CMD>:Telescope live_grep<CR>")
 keymap("i", "<A-f>", "<CMD>:Telescope live_grep<CR>")
 
+-- "  trouble.nvim
+-- 类似 VSCode 的Dev Toolbar
+keymap("n", "<A-d>", "<CMD>:TroubleToggle<CR>")
+keymap("i", "<A-d>", "<CMD>:TroubleToggle<CR>")
+
+-- nnoremap <leader>xx <cmd>TroubleToggle<cr>
+-- nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+-- nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+-- nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+-- nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+-- nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
 -- 注释
 -- 行注释
 -- 块注释
@@ -175,14 +187,6 @@ vim.keymap.set({"i", "n"}, '<A-\\>', require('Comment.api').call('toggle.blockwi
 --     " refer to doc to add more commands
 -- endfunction
 -- " Shortcutting split navigation:
-
--- "  trouble.nvim
--- nnoremap <leader>xx <cmd>TroubleToggle<cr>
--- nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
--- nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
--- nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
--- nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
--- nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 -- lsp-config Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

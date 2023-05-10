@@ -31,15 +31,15 @@ local buttons = {
     type = "group",
     val = {
 		-- 快捷键 显示的标题 命令
-        dashboard.button("<e>", "  New file", "<cmd>ene <CR>"),
-        dashboard.button("<A-p>", "  Find file By Telescope","<CMD>:Telescope find_files<CR>"),
-        dashboard.button("<A-p>", "  Find file By fd","<CMD>:Telescope fd<CR>"),
-        dashboard.button(":FzfLua", "  Find file By fzf","<CMD>:FzfLua files <CR>"),
-        dashboard.button("SPC f h", "  Recently opened files","<CMD>:Telescope frecency<CR>"),
-        dashboard.button("A f", "  Code Search","<CMD>:Telescope live_grep_args<CR>"),
-        dashboard.button("SPC f m", "  Jump to bookmarks","<CMD>:Telescope bookmarks<CR>"),
-        dashboard.button("SPC s l", "  Open last session","<CMD>:SessionManager load_last_session<CR>"),
-        dashboard.button("A l", "  Open File Tree","<CMD>:NvimTreeToggle<CR>")
+        dashboard.button("<e>", "  New file", "<cmd>ene <CR>"),
+        dashboard.button("<A-p>", "  Find file By Telescope","<CMD>:Telescope find_files<CR>"),
+        dashboard.button("<A-p>", "󰛔  Find file By fd","<CMD>:Telescope fd<CR>"),
+        dashboard.button(":FzfLua", "󰛔  Find file By fzf","<CMD>:FzfLua files <CR>"),
+        dashboard.button("SPC f h", "󰘁  Recently opened files","<CMD>:Telescope frecency<CR>"),
+        dashboard.button("A f", "  Code Search","<CMD>:Telescope live_grep_args<CR>"),
+        dashboard.button("SPC f m", "󱍻  Jump to bookmarks","<CMD>:Telescope bookmarks<CR>"),
+        dashboard.button("SPC s l", "  Open last session","<CMD>:SessionManager load_last_session<CR>"),
+        dashboard.button("A l", "󱏒  Open File Tree","<CMD>:NvimTreeToggle<CR>")
     },
     opts = {
         spacing = 1,

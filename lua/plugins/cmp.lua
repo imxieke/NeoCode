@@ -31,7 +31,7 @@ local lsp_menu = {
 	buffer = "[Buffer]",
 	nvim_lua = "[Lua]",
 	nvim_lsp = "[LSP]",
-	luasnip = "[LUASnip",
+	luasnip = "[LUASnip]",
 	cmp_tabnine = "[Tabnine]",
 	path = "[Path]",
 	emoji = "[Emoji]",
@@ -73,7 +73,7 @@ cmp.setup({
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+			-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
 		end,
@@ -87,6 +87,10 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			mode = 'symbol', -- show only symbol annotations options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			ellipsis_char = '...',
+			symbol_map = {
+				Codeium = ""
+			},
 
 			-- The function below will be called before any actual modifications from lspkind
 			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
@@ -148,27 +152,25 @@ cmp.setup({
 		-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	},
-	-- TODO: nvim_lsp nvim_lua 生效了  但是 `:CmpStatus` 页面提示无效 很神奇 似乎是懒加载的问题 待研究
-	-- TODO: cmp-tw2css 在 sh 文件下生效 css 不生效 待查 很神奇
 	sources = {
-		{ name = 'calc' },
-		{ name = 'vsnip' }, -- For vsnip users.
-		{ name = 'omni' },
-		{ name = 'tags' },
-		{ name = 'ctags' },
-		{ name = 'cmdline' },
+		-- { name = 'calc' },
+		-- { name = 'vsnip' }, -- For vsnip users.
+		-- { name = 'tags' },
+		-- { name = 'ctags' },
+		-- { name = 'cmdline' },
 		{ name = 'cmp_tabnine' },
-		{ name = 'treesitter' },
+		{ name = 'codeium' },
+		-- { name = 'treesitter' },
+		-- { name = 'luasnip' }, -- For luasnip users.
 		-- 搜索文件提供关键字
+		-- 太乱了  没什么卵用的
 		-- { name = 'rg' },
-		{ name = 'path' },
-		{ name = 'cmp-tw2css' },
-		{ name = 'devicons' },
-		{ name = 'nvim_lua' },
-		{ name = 'nvim_lsp' },
-		{ name = 'nvim_lsp_document_symbol' },
-		{ name = 'nvim_lsp_signature_help' },
-		{ name = 'luasnip' }, -- For luasnip users.
+		-- { name = 'path' },
+		-- { name = 'devicons' },
+		-- { name = 'nvim_lua' },
+		-- { name = 'nvim_lsp' },
+		-- { name = 'nvim_lsp_document_symbol' },
+		-- { name = 'nvim_lsp_signature_help' },
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
 		{
@@ -238,17 +240,19 @@ cmp.setup.cmdline('/', {
 
 vim.cmd('set completeopt=menu,menuone,noselect')
 
-require('cmp_tabnine.config').setup({
-	max_lines = 1000,
-	max_num_results = 8,
+local tabnine = require('cmp_tabnine.config')
+
+tabnine:setup({
+	max_lines = 10,
+	max_num_results = 10,
 	sort = true,
 	run_on_every_keystroke = true,
-	snippet_placeholder = '..',
-	ignored_file_types = {
+	-- snippet_placeholder = '..',
+	-- ignored_file_types = {
 		-- default is not to ignore
 		-- uncomment to ignore in lua:
 		-- lua = true
-	},
+	-- },
 	show_prediction_strength = false
 })
 
@@ -259,3 +263,8 @@ require('cmp_tabnine.config').setup({
 -- 		return snippet.description
 -- 	end
 -- }
+
+
+require("codeium").setup({
+
+})

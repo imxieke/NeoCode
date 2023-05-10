@@ -1,3 +1,0 @@
-## Coc
-
-- S Snippet

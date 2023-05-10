@@ -18,7 +18,7 @@ require "core/autocmd"
 require 'plugins/treesitter'
 require 'plugins/lsp'
 require 'plugins/lspkind'
-require 'plugins/lspsaga'
+-- require 'plugins/lspsaga'
 require 'plugins/cmp'
 
 -- 延迟 60ms+
@@ -44,7 +44,7 @@ require 'plugins/terminal'
 require 'plugins/session'
 require 'plugins/notify'
 require 'plugins/todo'
-require 'plugins/filetype'
+-- require 'plugins/filetype'
 require 'plugins/lsp_installer'
 require 'plugins/bufferline'
 
@@ -53,3 +53,5 @@ require 'plugins/symbols_outline'
 -- require 'plugins/dashboard'
 -- require 'plugins/neogit'
 -- require 'plugins/vgit'
+
+require "conf/filetype"

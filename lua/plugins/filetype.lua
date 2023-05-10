@@ -1,6 +1,9 @@
+-- sh html c 等后缀文件会报错 而且在新版并没有什么卵用 滚犊子吧
+
 -- https://github.com/nathom/filetype.nvim
 -- Do not source the default filetype.vim
-vim.g.did_load_filetypes = 1
+-- 如果使用早于 0.6.0 的 Neovim 版本，请解除注释以下内容
+-- vim.g.did_load_filetypes = 1
 
 require("filetype").setup({
 	overrides = {
@@ -43,10 +46,10 @@ require("filetype").setup({
 			["*.math_notes/%w+"] = function()
 				vim.cmd("iabbrev $ $$")
 			end,
-		},
-		shebang = {
-			-- Set the filetype of files with a dash shebang to sh
-			dash = "sh",
-		},
+		}
+		-- shebang = {
+		-- 	-- Set the filetype of files with a dash shebang to sh
+		-- 	dash = "sh",
+		-- },
 	},
 })

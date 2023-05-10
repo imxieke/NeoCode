@@ -1,8 +1,9 @@
 -- nvim-tree
 require("nvim-tree").setup({
+	on_attach = on_attach,
 	sort_by = "case_sensitive",
-	open_on_setup = false,
-	open_on_setup_file = false,
+	-- open_on_setup = false,
+	-- open_on_setup_file = false,
 	open_on_tab = true,
 	root_dirs = { "~" },
 	auto_reload_on_write = true,
@@ -10,19 +11,13 @@ require("nvim-tree").setup({
 		adaptive_size = false,
 		centralize_selection = false,
 		width = 30,
-		height = 30,
+		-- height = 30,
 		hide_root_folder = false,
 		side = "left",
 		preserve_window_proportions = true,
 		number = true,
 		relativenumber = false,
-		signcolumn = "yes",
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = "u", action = "dir_up" },
-			}
-		},
+		signcolumn = "yes"
 	},
 	renderer = {
 		add_trailing = false,
