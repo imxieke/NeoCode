@@ -11,7 +11,7 @@ vim.g.bubbly_statusline = {
 	'branch',
 	'signify',
 	'gitsigns',
-	'coc',
+	-- 'coc',
 	'divisor',
 	'filetype',
 	'progress',
@@ -77,10 +77,10 @@ vim.g.bubbly_symbols = {
 		modified = '~%s', -- requires 1 '%s'
 		removed = '-%s', -- requires 1 '%s'
 	},
-	coc = {
-		error = 'E%s', -- requires 1 '%s'
-		warning = 'W%s', -- requires 1 '%s'
-	},
+	-- coc = {
+	-- 	error = 'E%s', -- requires 1 '%s'
+	-- 	warning = 'W%s', -- requires 1 '%s'
+	-- },
 	builtinlsp = {
 		diagnostic_count = {
 			error = 'E%s', -- requires 1 '%s'
@@ -183,11 +183,11 @@ vim.g.bubbly_colors = {
 		removed = 'red',
 	},
 	paste = 'red',
-	coc = {
-		error = 'red',
-		warning = 'yellow',
-		status = { background = 'lightgrey', foreground = 'foreground' },
-	},
+	-- coc = {
+	-- 	error = 'red',
+	-- 	warning = 'yellow',
+	-- 	status = { background = 'lightgrey', foreground = 'foreground' },
+	-- },
 	builtinlsp = {
 		diagnostic_count = {
 			error = 'red',
@@ -239,11 +239,11 @@ vim.g.bubbly_styles = {
 		removed = 'bold',
 	},
 	paste = 'bold',
-	coc = {
-		error = 'bold',
-		warning = 'bold',
-		status = ''
-	},
+	-- coc = {
+	-- 	error = 'bold',
+	-- 	warning = 'bold',
+	-- 	status = ''
+	-- },
 	builtinlsp = {
 		diagnostic_count = {
 			error = '',

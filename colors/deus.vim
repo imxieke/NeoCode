@@ -592,10 +592,10 @@ endif
 " Plugin specific {{{
 " Cocnvim: {{{
 " Symbols
-highlight link CocErrorSign deusRedSign
-highlight link CocWarningSign deusYellowSign
-highlight link CocInfoSign deusAquaSign
-highlight link CocHintSign deusGreenSign
+"  highlight link CocErrorSign deusRedSign
+"  highlight link CocWarningSign deusYellowSign
+"  highlight link CocInfoSign deusAquaSign
+"  highlight link CocHintSign deusGreenSign
 
 " Text highlights
 call s:HL('CocHighlightText', s:fg1, s:bg2)

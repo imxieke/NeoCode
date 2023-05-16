@@ -36,8 +36,8 @@ require('bufferline').setup {
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		tab_size = 18,
 		-- false | "nvim_lsp" | "coc"
-		-- diagnostics = "nvim-lsp",
-		diagnostics = "coc",
+		diagnostics = "nvim-lsp",
+		-- diagnostics = "coc",
 		diagnostics_update_in_insert = false,
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			local s = " "

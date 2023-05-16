@@ -168,7 +168,8 @@ ins_left {
 ins_left {
 	'diagnostics',
 	-- sources = { 'nvim_diagnostic', 'coc', 'nvim_lsp' },
-	sources = { 'coc' },
+	sources = { 'nvim_diagnostic', 'nvim_lsp' },
+	-- sources = { 'coc' },
 	-- sources = { 'nvim_lsp' },
 	-- sources = { 'nvim_diagnostic' },
 	-- Displays diagnostics for the defined severity types

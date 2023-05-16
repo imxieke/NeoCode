@@ -182,10 +182,10 @@ telescope.setup {
 				{ "search highlighting (F12)", ':set hlsearch!' },
 			}
 		},
-		coc = {
-			theme = 'ivy',
-			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		},
+		-- coc = {
+		-- 	theme = 'ivy',
+		-- 	prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+		-- },
 		aerial = {
 			-- Display symbols as <root>.<parent>.<symbol>
 			show_nesting = true
@@ -231,7 +231,7 @@ telescope.load_extension('emoji')
 telescope.load_extension('glyph')
 telescope.load_extension('ctags_outline')
 telescope.load_extension('command_palette')
-telescope.load_extension('coc')
+-- telescope.load_extension('coc')
 -- 来自 stevearc/aerial.nvim
 telescope.load_extension('aerial')
 -- rcarriga/nvim-notify

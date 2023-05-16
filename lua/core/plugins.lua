@@ -95,7 +95,7 @@ return require('packer').startup(function(use)
     -- The Silver Searcher (Ag) functionality similar to that of fzf.vim
     use "kelly-lin/telescope-ag"
     -- coc.nvim integration for telescope.nvim
-    use "fannheyward/telescope-coc.nvim"
+    -- use "fannheyward/telescope-coc.nvim"
     -- bundled cheatsheets for the editor, multiple vim plugins, nerd-fonts, regex, etc. with a Telescope fuzzy finder interface
     -- TODO: 不知道有什么卵用待删除
     use "sudormrfbin/cheatsheet.nvim"
@@ -253,7 +253,7 @@ return require('packer').startup(function(use)
     }
 
     -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-    -- 似乎还可以提供 snippets 功能 luasnip vsnip
+    -- 似乎还可以提供 snippets 功能 luasnip
     use "jose-elias-alvarez/null-ls.nvim"
 
     -- 💻 Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
@@ -272,10 +272,10 @@ return require('packer').startup(function(use)
     -- Pop-up menu for code actions to show meta-information and diff preview
     -- 为错误代码提供快速修复解决方案 并支持修复前后对比diff
     use 'weilbith/nvim-code-action-menu'
-    use {
-		'xiyaowong/coc-code-action-menu.nvim',
-        after = 'coc.nvim'
-    }
+    -- use {
+	-- 	'xiyaowong/coc-code-action-menu.nvim',
+    --     after = 'coc.nvim'
+    -- }
 
 	-- Free, ultrafast Copilot alternative for Vim and Neovim
 	use 'jcdickinson/codeium.nvim'
@@ -286,10 +286,10 @@ return require('packer').startup(function(use)
     -- 	  				Code
     -- #################################################################
     -- Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers.
-    use {
-        'neoclide/coc.nvim',
-        branch = 'release'
-    }
+    -- use {
+    --     'neoclide/coc.nvim',
+    --     branch = 'release'
+    -- }
 
     -- #################################################################
     --                 Syntax && Code Feature Support

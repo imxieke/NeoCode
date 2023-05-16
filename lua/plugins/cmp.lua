@@ -73,7 +73,6 @@ cmp.setup({
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-			-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
 		end,
@@ -153,20 +152,19 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	},
 	sources = {
-		-- { name = 'calc' },
-		-- { name = 'vsnip' }, -- For vsnip users.
-		-- { name = 'tags' },
-		-- { name = 'ctags' },
-		-- { name = 'cmdline' },
+		{ name = 'calc' },
+		{ name = 'tags' },
+		{ name = 'ctags' },
+		{ name = 'cmdline' },
 		{ name = 'cmp_tabnine' },
 		{ name = 'codeium' },
-		-- { name = 'treesitter' },
-		-- { name = 'luasnip' }, -- For luasnip users.
+		{ name = 'treesitter' },
+		{ name = 'luasnip' }, -- For luasnip users.
 		-- 搜索文件提供关键字
 		-- 太乱了  没什么卵用的
 		-- { name = 'rg' },
 		-- { name = 'path' },
-		-- { name = 'devicons' },
+		{ name = 'devicons' },
 		-- { name = 'nvim_lua' },
 		-- { name = 'nvim_lsp' },
 		-- { name = 'nvim_lsp_document_symbol' },
