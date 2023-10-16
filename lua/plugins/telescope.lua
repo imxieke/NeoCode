@@ -215,16 +215,16 @@ telescope.setup {
 	}
 }
 
-telescope.load_extension('ultisnips')
+-- telescope.load_extension('ultisnips')
+-- telescope.load_extension("packer")
 telescope.load_extension("ui-select")
 telescope.load_extension("live_grep_args")
 telescope.load_extension('smart_history')
 telescope.load_extension("frecency")
 telescope.load_extension "file_browser"
 telescope.load_extension("node_modules")
-telescope.load_extension("packer")
 telescope.load_extension('ag')
-telescope.load_extension('fzf')
+-- telescope.load_extension('fzf')
 telescope.load_extension('bookmarks')
 telescope.load_extension('heading')
 telescope.load_extension('emoji')
@@ -233,7 +233,7 @@ telescope.load_extension('ctags_outline')
 telescope.load_extension('command_palette')
 -- telescope.load_extension('coc')
 -- 来自 stevearc/aerial.nvim
-telescope.load_extension('aerial')
+-- telescope.load_extension('aerial')
 -- rcarriga/nvim-notify
 telescope.load_extension('notify')
 -- telescope.extensions.live_grep_args.live_grep_args()

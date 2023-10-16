@@ -82,17 +82,17 @@ vim.opt.pumheight = 10 -- Make popup menu smaller
 -- vim.opt.shortmess     = 'aoOFc' -- Disable certain messages from |ins-completion-menu|
 -- vim.opt.showmode      = false 	-- Don't show mode in command line
 
-vim.cmd('set t_Co=256') -- 指定配色方案为256
+-- vim.cmd('set t_Co=256') -- 指定配色方案为256
 
 -- =====================Other==================================================
--- 禁止自动检测 Python 路径 速度太慢 手动指定路径
+-- 禁止自动检测 Python 路径 速度太慢, 手动指定路径
 vim.g.python3_host_skip_check = false
 vim.g.python2_host_skip_check = false
-vim.g.python3_host_prog = vim.fn.expand('/usr/local/bin/python3')
+vim.g.python3_host_prog = vim.fn.expand('/usr/local/bin/python3' or '/usr/bin/python3')
 vim.g.python2_host_prog = vim.fn.expand('/usr/bin/python2')
-vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node')
+vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 
-vim.cmd("set omnifunc=lsp#completion#OmniFunc")
+-- vim.cmd("set omnifunc=lsp#completion#OmniFunc")
 
 -- Set Background Colorscheme
 -- 主题的参数需要放在前面否则无法生效
@@ -120,7 +120,7 @@ vim.cmd("set omnifunc=lsp#completion#OmniFunc")
 -- vim.cmd("colorscheme sick-light")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme monokai")
-vim.cmd("colorscheme onedark")
+-- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme dogrun")
 -- vim.cmd("colorscheme one")
 
