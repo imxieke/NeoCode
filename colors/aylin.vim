@@ -1,4 +1,3 @@
-" vim:fdm=marker"
 " Vim Color File"
 " Name: aylin.vim"
 " Author: Ahmed Abdulrahman (@_ahmed_ab)"

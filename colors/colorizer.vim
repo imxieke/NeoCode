@@ -464,4 +464,3 @@ let s:saved_fgcontrast = g:colorizer_fgcontrast
 " Restoration and modelines {{{1
 let &cpo = s:keepcpo
 unlet s:keepcpo
-" vim:ft=vim:fdm=marker:fmr={{{,}}}:ts=8:sw=2:sts=2:et

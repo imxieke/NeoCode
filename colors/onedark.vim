@@ -1,4 +1,3 @@
-" vim:fdm=marker
 " Vim Color File
 " Name:       onedark.vim
 " Maintainer: https://github.com/joshdick/onedark.vim/

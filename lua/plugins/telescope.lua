@@ -50,13 +50,13 @@ telescope.setup {
 			db_root = "/Users/imxieke/.local/share/nvim/databases",
 			show_scores = true,
 			show_unindexed = true,
-			ignore_patterns = { "*.git/*", "*/tmp/*" },
+			ignore_patterns = { "*.git/*"},
 			disable_devicons = false,
 			workspaces = {
-				[".config"]   = "~/.config",
-				["share"]     = "~/.local/share",
-				["Code"]      = "~/Code",
-				["Downloads"] = "~/Downloads"
+				[".config"]   = "/Users/imxieke/.config",
+				["share"]     = "/Users/imxieke/.local/share",
+				["Code"]      = "/Users/imxieke/Code",
+				["Downloads"] = "/Users/imxieke/Downloads"
 			}
 		},
 		file_browser = {

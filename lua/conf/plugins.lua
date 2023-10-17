@@ -26,8 +26,7 @@ require("lazy").setup({
 	'williamboman/mason-lspconfig.nvim',
 
 	-- Nvim Treesitter configurations and abstraction layer
-	-- {'nvim-treesitter/nvim-treesitter', cmd = ':TSUpdate'},
-	{'nvim-treesitter/nvim-treesitter'},
+	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 	-- Show code context
 	'nvim-treesitter/nvim-treesitter-context',
     -- Refactor module for nvim-treesitter
@@ -57,7 +56,7 @@ require("lazy").setup({
     "onsails/lspkind.nvim",
 
     -- nvim-cmp source for neovim builtin LSP client
-    -- "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp",
     -- ripgrep source for nvim-cmp
     "lukas-reineke/cmp-rg",
     -- tags completion source for nvim-cmp
@@ -66,14 +65,14 @@ require("lazy").setup({
     "delphinus/cmp-ctags",
     -- cmp source for treesitter
     "ray-x/cmp-treesitter",
-    -- TabNine plugin for hrsh7th/nvim-cmp
+    -- TabNine
     {
         "tzachar/cmp-tabnine",
         build = "bash ./install.sh"
     },
 
 	-- Free, ultrafast Copilot alternative for Vim and Neovim
-	'jcdickinson/codeium.nvim',
+	'Exafunction/codeium.nvim',
 
     -- Snippets Engine
     -- 常见 Snippets 格式 neosnippet UltiSnips massCode snipmate VSCode
@@ -82,15 +81,15 @@ require("lazy").setup({
     -- 后缀为 .UltiSnips 的 UltiSnips snippet 关键字
     -- 目录含有 snippets/*.json (prefix body description 关键字) 为 VSCode 格式
 	-- 支持 SnipMate VSCode LSP
-	{
-		"L3MON4D3/LuaSnip",
-		-- follow latest release.
-		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!).
-		build = "make install_jsregexp"
-	},
-	-- luasnip completion source for nvim-cmp
-	'saadparwaiz1/cmp_luasnip',
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	-- follow latest release.
+	-- 	-- version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- 	-- install jsregexp (optional!).
+	-- 	build = "make install_jsregexp"
+	-- },
+	-- -- luasnip completion source for nvim-cmp
+	-- 'saadparwaiz1/cmp_luasnip',
 
 	-- ############################ Code Analysis ################################
 	-- lua GUI lib
@@ -124,7 +123,7 @@ require("lazy").setup({
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
 		build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-	}
+	},
     -- The Silver Searcher (Ag) functionality similar to that of fzf.vim
     "kelly-lin/telescope-ag",
     -- A Neovim Telescope extension to open your browser bookmarks right from the editor!
@@ -216,6 +215,12 @@ require("lazy").setup({
 	'ziontee113/neo-minimap',
 	-- LSP signature hint as you type
 	'ray-x/lsp_signature.nvim',
+	-- A format runner for Neovim.
+	'mhartington/formatter.nvim',
+	-- magit for neovim
+	'NeogitOrg/neogit',
+	-- Visual git plugin for Neovim
+	'tanvirtin/vgit.nvim',
 
 	-- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 	-- 提供快速注释的能力
@@ -223,22 +228,46 @@ require("lazy").setup({
     -- The undo history visualizer
     -- undo 树 可以查看树结构 undo 列表
     "jiaoshijie/undotree",
+	-- improve neovim lsp experience
+    "nvimdev/lspsaga.nvim",
+	-- auto remove search highlight and rehighlight when using n or N
+	{
+		'nvimdev/hlsearch.nvim',
+		event = 'BufRead'
+	},
+	-- A super powerful autopair plugin for Neovim that supports multiple characters.
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		opts = {} -- this is equalent to setup({}) function
+	},
 
 	-- ######################### UI #########################################
+	-- a lua powered greeter like vim-startify / dashboard-nvim
+	'goolord/alpha-nvim',
 	-- Status Line
 	"nvim-lualine/lualine.nvim",
 	-- A snazzy bufferline for Neovim
 	-- 顶部菜单以及窗口栏顶部菜单以及窗口栏
 	"akinsho/bufferline.nvim",
-
+    -- The missing UI extensions
+    -- 支持自定义右键菜单及顶部菜单栏 
+	-- TODO Vimscript 编写的 待替换
+	'skywind3000/vim-quickui',
 
 	-- ####################### Colorscheme ############################################
 	-- 🏙 A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
 	'folke/tokyonight.nvim',
 	-- A pack of modern nvim color schemes: material, moonlight, Dracula (blood), Monokai, Mariana, Emerald, earlysummer, middlenight_blue... Fully support Treesitter, LSP and a variety of plugins.
 	'ray-x/starry.nvim',
+	-- Indent guides for Neovim 方法 函数 循环等开始结束对齐
+	'lukas-reineke/indent-blankline.nvim',
+	-- A high-performance color highlighter (CSS 颜色代码高亮)
+	'norcalli/nvim-colorizer.lua',
 	-- Github's Neovim themes
 	'projekt0n/github-nvim-theme',
 	-- 🔱 Material colorscheme for NeoVim written in Lua with built-in support for native LSP, TreeSitter and many more plugins
-	'marko-cerovac/material.nvim'
+	'marko-cerovac/material.nvim',
+	-- A dark neovim colorscheme written in lua
+	'glepnir/zephyr-nvim'
 })

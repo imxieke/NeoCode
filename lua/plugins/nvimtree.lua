@@ -5,14 +5,13 @@ require("nvim-tree").setup({
 	-- open_on_setup = false,
 	-- open_on_setup_file = false,
 	open_on_tab = true,
-	root_dirs = { "~" },
+	root_dirs = { "/Users/imxieke" },
 	auto_reload_on_write = true,
 	view = {
 		adaptive_size = false,
 		centralize_selection = false,
 		width = 30,
 		-- height = 30,
-		hide_root_folder = false,
 		side = "left",
 		preserve_window_proportions = true,
 		number = true,
@@ -25,7 +24,7 @@ require("nvim-tree").setup({
 		highlight_git = false,
 		full_name = false,
 		highlight_opened_files = "none",
-		root_folder_modifier = ":~",
+		root_folder_modifier = ":/Users/imxieke",
 		indent_markers = {
 			enable = false,
 			icons = {

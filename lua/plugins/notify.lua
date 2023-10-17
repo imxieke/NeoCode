@@ -3,7 +3,6 @@ vim.notify = require("notify")
 
 -- TODO: 支持制定语言 但是没发现有什么卵用
 
-
 -- level: info error warning debug trace
 vim.vnotify = function(text, level, title)
 	if (level == nil) then

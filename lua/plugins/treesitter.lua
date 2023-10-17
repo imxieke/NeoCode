@@ -1,3 +1,5 @@
+vim.opt.runtimepath:append("~/.local/share/nvim/nvim-treesitter")
+
 -- fix "No folds found", or highlighting does not apply
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
@@ -13,6 +15,7 @@ vim.wo.foldlevel   = 99
 -- })
 
 require 'nvim-treesitter.configs'.setup {
+	parser_install_dir = "/Users/imxieke/.local/share/nvim/nvim-treesitter",
 	-- A list of parser names, or "all"
 	ensure_installed = {
 		"bash",
@@ -29,16 +32,18 @@ require 'nvim-treesitter.configs'.setup {
 		"rust",
 		"scss",
 		"sql",
-		"toml",
-		"vim",
 		"yaml"
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = true,
+	sync_install = false,
 
 	-- List of parsers to ignore installing (for "all")
 	ignore_install = {},
+
+  	-- Automatically install missing parsers when entering buffer
+  	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  	auto_install = false,
 
 	-- indent
 	indent = {
@@ -64,7 +69,7 @@ require 'nvim-treesitter.configs'.setup {
 		-- Using this option may slow down your editor, and you may see some duplicate highlights.
 		-- Instead of true it can also be a list of languages
 		-- 启用会与 spellsitter 冲突
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
 	refactor = {
 		highlight_definitions = {
@@ -72,6 +77,13 @@ require 'nvim-treesitter.configs'.setup {
 			-- Set to false if you have an `updatetime` of ~100.
 			clear_on_cursor_move = true,
 		},
+    	smart_rename = {
+      		enable = true,
+      		-- Assign keymaps to false to disable them, e.g. `smart_rename = false`.
+      		keymaps = {
+        	smart_rename = "grr",
+      	},
+    },
 		-- Highlights the block from the current scope where the cursor is.
 		highlight_current_scope = { enable = true },
 		navigation = {

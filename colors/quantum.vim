@@ -1,5 +1,3 @@
-" vim:fdm=marker
-
 " Initialization {{{
 highlight clear
 

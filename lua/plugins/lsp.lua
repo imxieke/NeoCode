@@ -1,8 +1,8 @@
 -- lsp config
 
-local lspconfig = require require('lspconfig')
+local lspconfig = require('lspconfig')
 
-local util = require ('lspconfig.util')
+local util = require('lspconfig.util')
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 -- Add additional capabilities supported by nvim-cmp
@@ -82,22 +82,22 @@ require("null-ls").setup({
 -- 	}
 -- })
 
--- lspconfig.phan.setup {
--- 	capabilities = capabilities,
--- 	cmd = { "phan", "-m", "json", "--no-color", "--no-progress-bar", "-x", "-u", "-S", "--language-server-on-stdin",
--- 		"--allow-polyfill-parser" },
--- 	filetypes = { "php" },
--- 	root_dir = util.root_pattern("composer.json"),
--- 	single_file_support = true
--- }
+lspconfig.phan.setup {
+	capabilities = capabilities,
+	cmd = { "phan", "-m", "json", "--no-color", "--no-progress-bar", "-x", "-u", "-S", "--language-server-on-stdin",
+		"--allow-polyfill-parser" },
+	filetypes = { "php" },
+	root_dir = util.root_pattern("composer.json"),
+	single_file_support = true
+}
 
--- lspconfig.psalm.setup {
--- 	capabilities = capabilities,
--- 	cmd = { "psalm-language-server" },
--- 	filetypes = { "php" },
--- 	root_dir = util.root_pattern("psalm.xml", "psalm.xml.dist"),
--- 	single_file_support = true
--- }
+lspconfig.psalm.setup {
+	capabilities = capabilities,
+	cmd = { "psalm-language-server" },
+	filetypes = { "php" },
+	root_dir = util.root_pattern("psalm.xml", "psalm.xml.dist"),
+	single_file_support = true
+}
 
 -- lspconfig.pyright.setup {
 -- 	on_attach = on_attach,
@@ -134,36 +134,36 @@ require("null-ls").setup({
 -- })
 
 -- Golang Server Protocol
--- lspconfig.gopls.setup {
--- 	capabilities = capabilities,
--- 	cmd = { "gopls", "serve" },
--- 	filetypes = { "go", "gomod" },
--- 	root_dir = util.root_pattern("go.work", "go.mod"),
--- 	settings = {
--- 		gopls = {
--- 			analyses = {
--- 				unusedparams = true,
--- 			},
--- 			staticcheck = true,
--- 		},
--- 	},
--- }
+lspconfig.gopls.setup {
+	capabilities = capabilities,
+	cmd = { "gopls", "serve" },
+	filetypes = { "go", "gomod" },
+	root_dir = util.root_pattern("go.work", "go.mod"),
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+		},
+	},
+}
 
--- lspconfig.pylsp.setup {
--- 	capabilities = capabilities,
--- 	cmd = { "pylsp" },
--- 	filetypes = { "python" },
--- 	settings = {
--- 		pylsp = {
--- 			plugins = {
--- 				pycodestyle = {
--- 					ignore = { 'W391' },
--- 					maxLineLength = 100
--- 				}
--- 			}
--- 		}
--- 	}
--- }
+lspconfig.pylsp.setup {
+	capabilities = capabilities,
+	cmd = { "pylsp" },
+	filetypes = { "python" },
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = { 'W391' },
+					maxLineLength = 100
+				}
+			}
+		}
+	}
+}
 
 -- lspconfig.lua_ls.setup({
 -- 	capabilities = capabilities,

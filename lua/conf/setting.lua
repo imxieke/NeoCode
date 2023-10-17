@@ -12,23 +12,19 @@ vim.opt.number = true
 -- 编码
 vim.opt.encoding = 'utf-8' -- 文件编码
 vim.opt.fileencoding = 'utf-8' -- 制表符占用空格数
+-- 将制表符扩展为空格
+vim.opt.expandtab = false
 vim.opt.tabstop = 4
 -- 让 vim 把连续数量的空格视为一个制表符
 vim.opt.softtabstop = 4
--- 高亮匹配括号
-vim.opt.showmatch = false
--- tab title as file name
-vim.opt.title = false
--- 将制表符扩展为空格
-vim.opt.expandtab = false
 -- 格式化时制表符占用空格数
 vim.opt.shiftwidth = 4
+vim.opt.showmatch = false -- 高亮匹配括号
+vim.opt.title = false -- tab title as file name
 -- Enable persistent undo
 vim.opt.undofile = true
--- enable emoji
-vim.opt.emoji = true
--- 文件自动更新
-vim.opt.autoread = true
+vim.opt.emoji = true -- enable emoji
+vim.opt.autoread = true -- 文件自动更新
 vim.opt.clipboard="unnamed" -- Clipboard Support
 vim.opt.hlsearch = true -- highlight text while searching
 -- TODO: 帮助文档语言 似乎对 neovim 无效 也许是文档缺失 待确认
@@ -41,8 +37,8 @@ vim.opt.smartindent = true -- 智能缩进
 vim.opt.autoindent = true -- 自动缩进
 vim.opt.smarttab = true -- Make tabbing smarter
 vim.opt.foldenable = true -- 文件折叠
-vim.opt.history = 1000 -- history number limit
-vim.opt.smartcase = true
+vim.opt.history = 1000 -- 保留历史记录的存储数量
+vim.opt.smartcase = true -- 有一个或以上大写字母时仍大小写敏感
 vim.opt.ignorecase = true -- 搜索忽略大小写
 vim.opt.incsearch = true -- Show search results while typing 开启增量搜索
 vim.opt.showcmd = true
@@ -120,8 +116,8 @@ vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 -- vim.cmd('colorscheme blue')
 -- vim.cmd("colorscheme sick")
 -- vim.cmd("colorscheme sick-light")
--- vim.cmd("colorscheme gruvbox")
--- vim.cmd("colorscheme monokai")
+vim.cmd("colorscheme gruvbox")
+-- vim.cmd 'colorscheme monokai'
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme dogrun")
 -- vim.cmd("colorscheme one")
@@ -166,3 +162,6 @@ vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 -- vim.cmd 'highlight Normal ctermfg=256 ctermbg=none'
 
 -- vim.cmd("highlight Comment ctermfg=green guifg=green")
+
+-- Speed up loading since 0.9
+-- vim.loader.enable()

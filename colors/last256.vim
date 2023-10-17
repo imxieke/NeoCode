@@ -387,5 +387,3 @@ hi! link TabLineFill StatusLineNC
 hi! link TabLineSel  StatusLine 
 hi! link TabLine Pmenu
 "}}}
-
-" vim: fdm=marker:sw=2:ts=2:tw=80

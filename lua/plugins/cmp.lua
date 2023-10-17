@@ -1,3 +1,20 @@
+require("codeium").setup({})
+local tabnine = require('cmp_tabnine.config')
+
+tabnine:setup({
+	max_lines = 10,
+	max_num_results = 20,
+	sort = true,
+	run_on_every_keystroke = true,
+	snippet_placeholder = '..',
+	-- ignored_file_types = {
+		-- default is not to ignore
+		-- uncomment to ignore in lua:
+		-- lua = true
+	-- },
+	show_prediction_strength = false
+})
+
 -- cmp
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
@@ -28,14 +45,14 @@ cmp.register_source('devicons', {
 
 -- 自动补全提示的数据来源
 local lsp_menu = {
-	buffer = "[Buffer]",
-	nvim_lua = "[Lua]",
-	nvim_lsp = "[LSP]",
-	luasnip = "[LUASnip]",
+	buffer 		= "[Buffer]",
+	nvim_lua 	= "[Lua]",
+	nvim_lsp 	= "[LSP]",
+	luasnip 	= "[LUASnip]",
 	cmp_tabnine = "[Tabnine]",
-	path = "[Path]",
-	emoji = "[Emoji]",
-	neorg = "[Neorg]"
+	path 		= "[Path]",
+	emoji 		= "[Emoji]",
+	neorg 		= "[Neorg]"
 }
 
 -- 自动补全提示的 icon
@@ -194,6 +211,7 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
+			require('cmp_tabnine.compare'),
 			cmp.config.compare.offset,
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
@@ -238,22 +256,6 @@ cmp.setup.cmdline('/', {
 
 vim.cmd('set completeopt=menu,menuone,noselect')
 
-local tabnine = require('cmp_tabnine.config')
-
-tabnine:setup({
-	max_lines = 10,
-	max_num_results = 10,
-	sort = true,
-	run_on_every_keystroke = true,
-	-- snippet_placeholder = '..',
-	-- ignored_file_types = {
-		-- default is not to ignore
-		-- uncomment to ignore in lua:
-		-- lua = true
-	-- },
-	show_prediction_strength = false
-})
-
 -- require("cmp_nvim_ultisnips").setup {
 -- 	filetype_source = "treesitter",
 -- 	show_snippets = "all",
@@ -261,8 +263,3 @@ tabnine:setup({
 -- 		return snippet.description
 -- 	end
 -- }
-
-
-require("codeium").setup({
-
-})
