@@ -99,6 +99,8 @@ vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 -- vim.cmd("set background=light")
 -- vim.cmd("set background=dark")
 
+-- vim.cmd 'colorscheme material'
+
 -- Material Colors
 -- vim.g.material_style = "deep ocean"
 -- vim.g.material_style = "palenight"

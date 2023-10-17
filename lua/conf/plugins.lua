@@ -13,9 +13,6 @@ require("lazy").setup({
 	"folke/which-key.nvim",
 	-- ✅ Highlight, list and search todo comments in your projects
 	"folke/todo-comments.nvim",
-	-- ######################### UI #########################################
-	-- Status Line
-	"nvim-lualine/lualine.nvim",
 
 	-- ################### LSP, Treesitter Completion Coc + CMP #############
     -- Quickstart configs for Nvim LSP
@@ -95,6 +92,17 @@ require("lazy").setup({
 	-- luasnip completion source for nvim-cmp
 	'saadparwaiz1/cmp_luasnip',
 
+	-- ############################ Code Analysis ################################
+	-- lua GUI lib
+	{
+		'ray-x/guihua.lua',
+		build = 'cd lua/fzy && make'
+	},
+	-- Code analysis & navigation plugin for Neovim. Navigate codes like a breeze🎐 Exploring LSP and 🌲Treesitter symbols a piece of 🍰 Take control like a boss 🦍
+	'ray-x/navigator.lua',
+	-- A feature-rich Go development plugin, leveraging gopls, treesitter AST, Dap, and various Go tools to enhance the development experience.
+	'ray-x/go.nvim',
+	'ray-x/forgit.nvim',
 	-- ############################ Search ########################################
     -- Find, Filter, Preview, Pick. All lua, all the time.
     "nvim-telescope/telescope.nvim",
@@ -110,6 +118,13 @@ require("lazy").setup({
     "nvim-telescope/telescope-file-browser.nvim",
     -- An extension that provides its users with node packages under node_modules directory
     "nvim-telescope/telescope-node-modules.nvim",
+	-- navigate, select, and perform actions on results buffer with motions inspired by hop.nvim.
+    "nvim-telescope/telescope-hop.nvim",
+	-- FZF sorter for telescope written in c
+	{
+		'nvim-telescope/telescope-fzf-native.nvim',
+		build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+	}
     -- The Silver Searcher (Ag) functionality similar to that of fzf.vim
     "kelly-lin/telescope-ag",
     -- A Neovim Telescope extension to open your browser bookmarks right from the editor!
@@ -125,7 +140,16 @@ require("lazy").setup({
     -- Create key-bindings and watch them with telescope 🔭
     "LinArcX/telescope-command-palette.nvim",
 
+	-- ######################### File && Search ######################################
+	-- Improved fzf.vim written in lua
+	'ibhagwan/fzf-lua',
+	-- File Explorer
+	'nvim-tree/nvim-tree.lua',
+
+
 	-- ######################### Utils ######################################
+	-- improve the default vim.ui interfaces
+    'stevearc/dressing.nvim',
     -- Depends By folke/trouble.nvim option
     'folke/lsp-colors.nvim',
     -- 🌈 creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin LSP client.
@@ -137,10 +161,84 @@ require("lazy").setup({
 	'rcarriga/nvim-notify',
     -- 依赖 nerd 字体
     -- Depends By folke/trouble.nvim
-	'kyazdani42/nvim-web-devicons',
+	-- lua `fork` of vim-web-devicons for neovim
+	'nvim-tree/nvim-web-devicons',
     -- full; complete; entire; absolute; unqualified. All the lua functions
     -- Depends By Telescope nvim-lua/popup.nvim Shatur/neovim-session-manager sudormrfbin/cheatsheet.nvim
     "nvim-lua/plenary.nvim",
+    -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+    -- 似乎还可以提供 snippets 功能 luasnip
+    "jose-elias-alvarez/null-ls.nvim",
+    -- 💻 Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+    -- 自动完成 函数等信息 hover doc
+    "folke/neodev.nvim",
+	-- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+    "sindrets/diffview.nvim",
+    -- Async Language Server Protocol plugin for vim8 and neovim.
+    "prabirshrestha/async.vim",
+	-- A code outline window for skimming and quick navigation
+	'stevearc/aerial.nvim',
+	-- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
+	'simrat39/symbols-outline.nvim',
+
+	-- 功能比较简陋不支持按键 需自定义命令或按键 详见 :help litee-filetree.nvim
+	-- A framework for building Neovim plugins
+	'ldelossa/litee.nvim',
+	-- A file explorer implemented with the litee.nvim library.
+	'ldelossa/litee-filetree.nvim',
+	-- Neovim's missing call hierarchy UI
+	'ldelossa/litee-calltree.nvim',
+	-- A document outline tool implemented with the litee.nvim library
+	'ldelossa/litee-symboltree.nvim',
+	-- A litee.nvim backed plugin for saving important places in your code.
+	'litee-bookmarks.nvim',
+	-- A fully featured GitHub integration for performing code reviews in Neovim.
+	'ldelossa/gh.nvim',
+
+
 	-- Library of 20+ independent Lua modules improving overall Neovim (version 0.5 and higher) experience with minimal effort
-    "echasnovski/mini.nvim"
+    "echasnovski/mini.nvim",
+
+	-- A neovim lua plugin to help easily manage multiple terminal windows
+	-- 可用于创建独立浮动窗口 如 vim 中查看 htop
+    "akinsho/toggleterm.nvim",
+
+    -- Pop-up menu for code actions to show meta-information and diff preview
+    -- 为错误代码提供快速修复解决方案 并支持修复前后对比diff
+    'weilbith/nvim-code-action-menu',
+
+	-- Icon Picker
+	-- pick Nerd Font Icons, Symbols & Emojis
+    "ziontee113/icon-picker.nvim",
+	-- A powerful Neovim plugin that lets users choose & modify RGB/HSL/HEX colors.
+	'ziontee113/color-picker.nvim',
+	-- create your own "minimap" from Treesitter Queries or Vim Regex.
+	'ziontee113/neo-minimap',
+	-- LSP signature hint as you type
+	'ray-x/lsp_signature.nvim',
+
+	-- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+	-- 提供快速注释的能力
+    "numToStr/Comment.nvim",
+    -- The undo history visualizer
+    -- undo 树 可以查看树结构 undo 列表
+    "jiaoshijie/undotree",
+
+	-- ######################### UI #########################################
+	-- Status Line
+	"nvim-lualine/lualine.nvim",
+	-- A snazzy bufferline for Neovim
+	-- 顶部菜单以及窗口栏顶部菜单以及窗口栏
+	"akinsho/bufferline.nvim",
+
+
+	-- ####################### Colorscheme ############################################
+	-- 🏙 A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+	'folke/tokyonight.nvim',
+	-- A pack of modern nvim color schemes: material, moonlight, Dracula (blood), Monokai, Mariana, Emerald, earlysummer, middlenight_blue... Fully support Treesitter, LSP and a variety of plugins.
+	'ray-x/starry.nvim',
+	-- Github's Neovim themes
+	'projekt0n/github-nvim-theme',
+	-- 🔱 Material colorscheme for NeoVim written in Lua with built-in support for native LSP, TreeSitter and many more plugins
+	'marko-cerovac/material.nvim'
 })
