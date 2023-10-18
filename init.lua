@@ -1,5 +1,5 @@
 -- 初始化脚本 如某些依赖
--- os.execute("bash ~/.config/nvim/scripts/init.sh")
+os.execute("bash ~/.config/nvim/scripts/init.sh")
 
 -- 加载 Vim 自定义参数
 require("conf/setting")
