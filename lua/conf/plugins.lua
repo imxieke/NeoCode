@@ -2,12 +2,13 @@
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({"git","clone","--filter=blob:none","https://github.com/folke/lazy.nvim.git","--branch=main",lazypath,})
+  vim.fn.system({"git","clone","--filter=blob:none","https://github.com/folke/lazy.nvim.git","--branch=main",stable,})
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
+vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
 
 require("lazy").setup({
 	"folke/which-key.nvim",
@@ -51,6 +52,13 @@ require("lazy").setup({
     -- "hrsh7th/cmp-omni",
     -- nvim-cmp source for math calculation
     "hrsh7th/cmp-calc",
+	-- nvim-cmp source for nvim lua
+    "hrsh7th/cmp-nvim-lua",
+
+    {
+		"neoclide/coc.nvim",
+		branch = 'release'
+	},
 
     -- 提供自动提示前面的 icon 可以分辨出是什么软件提供 什么类型 如 function method variable snippet const 等等
     "onsails/lspkind.nvim",
@@ -84,7 +92,7 @@ require("lazy").setup({
 	-- {
 	-- 	"L3MON4D3/LuaSnip",
 	-- 	-- follow latest release.
-	-- 	-- version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- 	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 	-- 	-- install jsregexp (optional!).
 	-- 	build = "make install_jsregexp"
 	-- },
@@ -119,6 +127,14 @@ require("lazy").setup({
     "nvim-telescope/telescope-node-modules.nvim",
 	-- navigate, select, and perform actions on results buffer with motions inspired by hop.nvim.
     "nvim-telescope/telescope-hop.nvim",
+	-- provide its users with the ability of picking symbols and insert them at point.
+    "nvim-telescope/telescope-symbols.nvim",
+	-- Integration with github cli
+    "nvim-telescope/telescope-github.nvim",
+	-- An attempt to recreate cheat.sh with lua, neovim, sqlite.lua, and telescope.nvim.
+    "nvim-telescope/telescope-cheat.nvim",
+	-- coc.nvim integration for telescope.nvim
+    "fannheyward/telescope-coc.nvim",
 	-- FZF sorter for telescope written in c
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
@@ -145,8 +161,13 @@ require("lazy").setup({
 	-- File Explorer
 	'nvim-tree/nvim-tree.lua',
 
+	-- ############################ Snippets #########################################
+	-- VSCode Format
+	-- Snippets collection for a set of different programming languages.
+	'rafamadriz/friendly-snippets',
 
-	-- ######################### Utils ######################################
+
+	-- ################################ Utils ########################################
 	-- improve the default vim.ui interfaces
     'stevearc/dressing.nvim',
     -- Depends By folke/trouble.nvim option
@@ -165,6 +186,10 @@ require("lazy").setup({
     -- full; complete; entire; absolute; unqualified. All the lua functions
     -- Depends By Telescope nvim-lua/popup.nvim Shatur/neovim-session-manager sudormrfbin/cheatsheet.nvim
     "nvim-lua/plenary.nvim",
+	-- An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
+	"nvim-lua/popup.nvim",
+	-- A cheatsheet plugin for neovim with bundled cheatsheets for the editor, multiple vim plugins, nerd-fonts, regex, etc. with a Telescope fuzzy finder interface!
+	"sudormrfbin/cheatsheet.nvim",
     -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     -- 似乎还可以提供 snippets 功能 luasnip
     "jose-elias-alvarez/null-ls.nvim",
@@ -179,21 +204,21 @@ require("lazy").setup({
 	'stevearc/aerial.nvim',
 	-- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
 	'simrat39/symbols-outline.nvim',
-
+	-- A simple wrapper around :mksession. 历史会话记录
+	'Shatur/neovim-session-manager',
 	-- 功能比较简陋不支持按键 需自定义命令或按键 详见 :help litee-filetree.nvim
 	-- A framework for building Neovim plugins
 	'ldelossa/litee.nvim',
+	-- helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.
+	'editorconfig/editorconfig-vim',
 	-- A file explorer implemented with the litee.nvim library.
-	'ldelossa/litee-filetree.nvim',
+	-- 'ldelossa/litee-filetree.nvim',
 	-- Neovim's missing call hierarchy UI
 	'ldelossa/litee-calltree.nvim',
 	-- A document outline tool implemented with the litee.nvim library
 	'ldelossa/litee-symboltree.nvim',
 	-- A litee.nvim backed plugin for saving important places in your code.
-	'litee-bookmarks.nvim',
-	-- A fully featured GitHub integration for performing code reviews in Neovim.
-	'ldelossa/gh.nvim',
-
+	'ldelossa/litee-bookmarks.nvim',
 
 	-- Library of 20+ independent Lua modules improving overall Neovim (version 0.5 and higher) experience with minimal effort
     "echasnovski/mini.nvim",
@@ -241,6 +266,11 @@ require("lazy").setup({
 		event = "InsertEnter",
 		opts = {} -- this is equalent to setup({}) function
 	},
+	-- get the nerdfont icons inside neovim
+	{
+		"glepnir/nerdicons.nvim",
+		cmd = 'NerdIcons'
+	},
 
 	-- ######################### UI #########################################
 	-- a lua powered greeter like vim-startify / dashboard-nvim
@@ -254,6 +284,10 @@ require("lazy").setup({
     -- 支持自定义右键菜单及顶部菜单栏 
 	-- TODO Vimscript 编写的 待替换
 	'skywind3000/vim-quickui',
+	-- UI Component Library for Neovim.
+	'MunifTanjim/nui.nvim',
+	-- 💥 Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
+	'folke/noice.nvim',
 
 	-- ####################### Colorscheme ############################################
 	-- 🏙 A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
@@ -266,6 +300,8 @@ require("lazy").setup({
 	'norcalli/nvim-colorizer.lua',
 	-- Github's Neovim themes
 	'projekt0n/github-nvim-theme',
+	-- Gruvbox theme for neovim with full 🎄TreeSitter support.
+	'luisiacc/gruvbox-baby',
 	-- 🔱 Material colorscheme for NeoVim written in Lua with built-in support for native LSP, TreeSitter and many more plugins
 	'marko-cerovac/material.nvim',
 	-- A dark neovim colorscheme written in lua

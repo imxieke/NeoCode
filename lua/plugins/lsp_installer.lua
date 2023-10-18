@@ -77,8 +77,6 @@ require("mason-lspconfig").setup({
 		"julials",
 		"kotlin_language_server",
 		"lua_ls",
-		"phan",
-		"phpstan",
 		"psalm",
 		"pyright",
 		"pylsp",

@@ -182,7 +182,7 @@ cmp.setup({
 		-- { name = 'rg' },
 		-- { name = 'path' },
 		{ name = 'devicons' },
-		-- { name = 'nvim_lua' },
+		{ name = 'nvim_lua' },
 		-- { name = 'nvim_lsp' },
 		-- { name = 'nvim_lsp_document_symbol' },
 		-- { name = 'nvim_lsp_signature_help' },

@@ -19,7 +19,6 @@ vim.api.nvim_create_user_command('GitUI',
     })
 
 -- 代码搜索
-
 vim.api.nvim_create_user_command('CodeSearch', 'lua require("telescope").extensions.live_grep_args.live_grep_args()', {
     bang = true,
     desc = "GitUI For Neovim"
@@ -57,5 +56,10 @@ vim.api.nvim_create_user_command('UndoTreeOpen', 'lua require("undotree").open()
 vim.api.nvim_create_user_command('UndoTreeClose', 'lua require("undotree").close()', {
     bang = true,
     desc = "UndoTree Close"
+})
+
+vim.api.nvim_create_user_command('Todo', 'TodoTelescope keywords=TODO,HACK,NOTE,WARN,PERF,TEST,FIX,FIXME,FIXIT,BUG,ISSUE', {
+    bang = true,
+    desc = "TODO Comment"
 })
 

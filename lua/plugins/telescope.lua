@@ -7,7 +7,7 @@ telescope.setup {
 		generic_sorter = require('mini.fuzzy').get_telescope_sorter,
 		history = {
 			path = '/Users/imxieke/.local/share/nvim/databases/telescope_history.sqlite3',
-			limit = 3180,
+			limit = 5000,
 		}
 	},
 	extensions = {
@@ -62,7 +62,30 @@ telescope.setup {
 		file_browser = {
 			theme = "ivy",
 			-- disables netrw and use telescope-file-browser in its place
-			hijack_netrw = true
+			hijack_netrw = true,
+			path = vim.loop.cwd(),
+			cwd = vim.loop.cwd(),
+			cwd_to_path = false,
+			grouped = false,
+			files = true,
+			add_dirs = true,
+			depth = 1,
+			auto_depth = false,
+			select_buffer = false,
+			hidden = { file_browser = false, folder_browser = false },
+			respect_gitignore = vim.fn.executable "fd" == 1,
+			follow_symlinks = true,
+			browse_files = require("telescope._extensions.file_browser.finders").browse_files,
+			browse_folders = require("telescope._extensions.file_browser.finders").browse_folders,
+			hide_parent_dir = false,
+			collapse_dirs = false,
+			prompt_path = false,
+			quiet = false,
+			dir_icon = "",
+			dir_icon_hl = "Default",
+			display_stat = { date = true, size = true, mode = true },
+			use_fd = true,
+			git_status = true,
 		},
 		bookmarks = {
 			-- Available: 'brave', 'buku', 'chrome', 'chrome_beta', 'edge', 'safari', 'firefox', 'vivaldi'
@@ -182,10 +205,10 @@ telescope.setup {
 				{ "search highlighting (F12)", ':set hlsearch!' },
 			}
 		},
-		-- coc = {
-		-- 	theme = 'ivy',
-		-- 	prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		-- },
+		coc = {
+			theme = 'ivy',
+			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+		},
 		aerial = {
 			-- Display symbols as <root>.<parent>.<symbol>
 			show_nesting = true
@@ -224,18 +247,21 @@ telescope.load_extension("frecency")
 telescope.load_extension "file_browser"
 telescope.load_extension("node_modules")
 telescope.load_extension('ag')
--- telescope.load_extension('fzf')
+telescope.load_extension('cheat')
+telescope.load_extension('gh')
+telescope.load_extension('fzf')
 telescope.load_extension('bookmarks')
 telescope.load_extension('heading')
 telescope.load_extension('emoji')
 telescope.load_extension('glyph')
 telescope.load_extension('ctags_outline')
 telescope.load_extension('command_palette')
--- telescope.load_extension('coc')
--- 来自 stevearc/aerial.nvim
--- telescope.load_extension('aerial')
 -- rcarriga/nvim-notify
 telescope.load_extension('notify')
+telescope.load_extension("noice")
+telescope.load_extension('coc')
+-- 来自 stevearc/aerial.nvim
+-- telescope.load_extension('aerial')
 -- telescope.extensions.live_grep_args.live_grep_args()
 -- telescope.load_extension('media_files')
 -- telescope.load_extension('luasnip')
@@ -245,3 +271,5 @@ telescope.load_extension('notify')
 -- show all opened buf outline(use current buf filetype)
 -- telescope.extensions.ctags_outline.outline()
 -- telescope.extensions.ctags_outline.outline({ buf = 'all' })
+
+require("telescope.health").check()

@@ -26,12 +26,8 @@
 -- 	})
 -- end
 
--- 不知道啥问题 有空学一下 lua 撸啊吧
+-- 不知道啥问题 有空学一下 lua
 -- local function set_nvim_filetype(pattern, type)
 -- 	local cmd = "autocmd BufNewFile,BufRead " .. pattern .. " :setl ft=" .. type
 -- 	vim.cmd(cmd)
 -- end
-
--- vim.cmd("autocmd BufEnter,FileType,BufRead,BufNewFile *.abc :setl ft=bash")
--- vim.cmd("autocmd BufEnter,FileType,BufRead,BufNewFile Dockerfile.* :setl ft=dockerfile")
--- vim.cmd("autocmd BufEnter,FileType,BufRead,BufNewFile nginx.conf :setl ft=nginx")

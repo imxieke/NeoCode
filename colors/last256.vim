@@ -356,11 +356,11 @@ exe "hi! Important" . s:fg_background . s:bg_red    . s:fmt_bold
 exe "hi! FIXME"     . s:fg_addfg      . s:bg_red    . s:fmt_bold
 
 "add autocommands
-autocmd BufWinEnter * call matchadd("Important","!Important!")
-autocmd BufWinEnter * call matchadd("MK1","!MARK1")
-autocmd BufWinEnter * call matchadd("MK2","!MARK2")
-autocmd BufWinEnter * call matchadd("MK3","!MARK3")
-autocmd BufWinEnter * call matchadd("FIXME","FIXME")
+" autocmd BufWinEnter * call matchadd("Important","!Important!")
+" autocmd BufWinEnter * call matchadd("MK1","!MARK1")
+" autocmd BufWinEnter * call matchadd("MK2","!MARK2")
+" autocmd BufWinEnter * call matchadd("MK3","!MARK3")
+" autocmd BufWinEnter * call matchadd("FIXME","FIXME")
 "}}}
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------

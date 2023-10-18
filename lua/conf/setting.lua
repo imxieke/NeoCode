@@ -1,4 +1,3 @@
--- neovim 配置信息
 -- ================================================================
 -- 	              通用设置
 -- ================================================================
@@ -7,19 +6,19 @@ vim.cmd('filetype plugin indent on') -- 开启文件类型侦测 根据侦测到
 vim.cmd('filetype detect') -- detect the file type again
 
 -- vim.g.mapleader      = '\\'
--- show line numbers
-vim.opt.number = true
+vim.opt.number = true  			-- show line numbers
+vim.opt.relativenumber = true  	-- show relative line numbers
 -- 编码
 vim.opt.encoding = 'utf-8' -- 文件编码
 vim.opt.fileencoding = 'utf-8' -- 制表符占用空格数
 -- 将制表符扩展为空格
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 vim.opt.tabstop = 4
 -- 让 vim 把连续数量的空格视为一个制表符
 vim.opt.softtabstop = 4
 -- 格式化时制表符占用空格数
 vim.opt.shiftwidth = 4
-vim.opt.showmatch = false -- 高亮匹配括号
+vim.opt.showmatch = true -- 高亮匹配括号
 vim.opt.title = false -- tab title as file name
 -- Enable persistent undo
 vim.opt.undofile = true
@@ -32,7 +31,7 @@ vim.opt.helplang = 'cn'
 vim.opt.hidden = false -- Allow switching from unsaved buffer
 vim.opt.wrap = true -- 自动折行
 vim.opt.modeline = true -- Allow modeline
-vim.opt.lazyredraw = true -- Use lazy redraw
+-- vim.opt.lazyredraw = true -- Use lazy redraw
 vim.opt.smartindent = true -- 智能缩进
 vim.opt.autoindent = true -- 自动缩进
 vim.opt.smarttab = true -- Make tabbing smarter
@@ -65,7 +64,7 @@ vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.laststatus = 2 -- Always show statusline
 vim.opt.showtabline = 2 -- Always show tabline
 vim.opt.termguicolors = true -- enable true colors support
-vim.opt.cursorline = false -- 突出显示当前行
+vim.opt.cursorline = true -- 突出显示当前行
 vim.opt.cursorcolumn = false -- 突出显示当前列
 vim.opt.ruler = true -- 显示光标位置
 vim.opt.signcolumn = 'yes' -- Always show signcolumn or it would frequently shift, make signcolumn background color transparent
@@ -93,7 +92,7 @@ vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 -- Set Background Colorscheme
 -- 主题的参数需要放在前面否则无法生效
 -- vim.cmd("set background=light")
--- vim.cmd("set background=dark")
+vim.cmd("set background=dark")
 
 -- vim.cmd 'colorscheme material'
 
@@ -109,18 +108,24 @@ vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 -- vim.cmd('colorscheme default')
 -- 需要配合插件使用  含有 lua 插件需启用
 -- vim.cmd('colorscheme material')
--- vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme tokyonight-night")
 -- vim.cmd("colorscheme tokyonight-storm")
 -- vim.cmd("colorscheme tokyonight-day")
 -- vim.cmd('colorscheme blue')
 -- vim.cmd("colorscheme sick")
 -- vim.cmd("colorscheme sick-light")
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
+
+-- vim.g.aurora_italic = 1     -- italic
+-- vim.g.aurora_transparent = 1     -- transparent
+-- vim.g.aurora_bold = 1     -- bold
+-- vim.g.aurora_darker = 1     -- darker background
+-- vim.cmd("colorscheme aurora")
 -- vim.cmd 'colorscheme monokai'
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme dogrun")
--- vim.cmd("colorscheme one")
+vim.cmd("colorscheme one")
 
 -- default neon aura
 -- vim.g.edge_style = 'default'
@@ -158,10 +163,16 @@ vim.cmd("colorscheme gruvbox")
 
 -- vim.cmd "highlight NonText guibg=NONE ctermbg=None"
 -- vim.cmd 'highlight NonText ctermbg=NONE guibg=NONE' -- 背景透明
--- vim.cmd "highlight Normal guibg=NONE ctermbg=None"
+-- vim.cmd 'highlight String ctermbg=NONE guibg=NONE' -- 背景透明
+-- vim.cmd "highlight String guibg=NONE ctermbg=None" -- remove background
+-- vim.cmd "highlight Normal guibg=NONE ctermbg=None" -- "remove background
 -- vim.cmd 'highlight Normal ctermfg=256 ctermbg=none'
 
 -- vim.cmd("highlight Comment ctermfg=green guifg=green")
 
 -- Speed up loading since 0.9
 -- vim.loader.enable()
+-- customize highlight
+vim.api.nvim_set_hl(0, '@string', {fg='#59E343'})
+vim.api.nvim_set_hl(0, '@field', {fg='#f93393'})
+vim.api.nvim_set_hl(0, '@number', {fg='#e933e3'})

@@ -1,4 +1,7 @@
 -- 快捷键绑定
+-- local keymap = vim.keymap -- for conciseness
+-- local noremap = { noremap = true, silent = true }
+
 -- mode 运行模式 Insert Normal 模式 key 绑定的按键 cmd 绑定命令 opt 可选参数 应该是函数或命令的参数
 -- vim.api.nvim_set_keymap(mode, key, cmd, opt)
 local default_opts = {
