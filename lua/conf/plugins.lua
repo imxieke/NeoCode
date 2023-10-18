@@ -1,6 +1,4 @@
 -- Load lazy.nvim
-
--- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local lazypath = vim.fn.expand('$HOME/.local/share/nvim') .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({"git","clone","--filter=blob:none","https://github.com/folke/lazy.nvim.git","--branch=main",stable,})
@@ -56,10 +54,11 @@ require("lazy").setup({
 	-- nvim-cmp source for nvim lua
     "hrsh7th/cmp-nvim-lua",
 
-    {
-		"neoclide/coc.nvim",
-		branch = 'release'
-	},
+	-- TypeScript 编写的强大的自动补全
+    -- {
+	-- 	"neoclide/coc.nvim",
+	-- 	branch = 'release'
+	-- },
 
     -- 提供自动提示前面的 icon 可以分辨出是什么软件提供 什么类型 如 function method variable snippet const 等等
     "onsails/lspkind.nvim",
@@ -135,7 +134,7 @@ require("lazy").setup({
 	-- An attempt to recreate cheat.sh with lua, neovim, sqlite.lua, and telescope.nvim.
     "nvim-telescope/telescope-cheat.nvim",
 	-- coc.nvim integration for telescope.nvim
-    "fannheyward/telescope-coc.nvim",
+    -- "fannheyward/telescope-coc.nvim",
 	-- FZF sorter for telescope written in c
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
@@ -172,6 +171,8 @@ require("lazy").setup({
 	-- improve the default vim.ui interfaces
     'stevearc/dressing.nvim',
     -- Depends By folke/trouble.nvim option
+	-- 🌈 Plugin that creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin LSP client.
+	-- Unmaintained
     'folke/lsp-colors.nvim',
     -- 🌈 creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin LSP client.
     "folke/trouble.nvim",
@@ -181,7 +182,6 @@ require("lazy").setup({
 	-- A fancy, configurable, notification manager for NeoVim
 	'rcarriga/nvim-notify',
     -- 依赖 nerd 字体
-    -- Depends By folke/trouble.nvim
 	-- lua `fork` of vim-web-devicons for neovim
 	'nvim-tree/nvim-web-devicons',
     -- full; complete; entire; absolute; unqualified. All the lua functions
@@ -189,11 +189,14 @@ require("lazy").setup({
     "nvim-lua/plenary.nvim",
 	-- An implementation of the Popup API from vim in Neovim. Hope to upstream when complete
 	"nvim-lua/popup.nvim",
+
 	-- A cheatsheet plugin for neovim with bundled cheatsheets for the editor, multiple vim plugins, nerd-fonts, regex, etc. with a Telescope fuzzy finder interface!
 	"sudormrfbin/cheatsheet.nvim",
+
     -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     -- 似乎还可以提供 snippets 功能 luasnip
     "jose-elias-alvarez/null-ls.nvim",
+
     -- 💻 Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
     -- 自动完成 函数等信息 hover doc
     "folke/neodev.nvim",
@@ -207,6 +210,7 @@ require("lazy").setup({
 	'simrat39/symbols-outline.nvim',
 	-- A simple wrapper around :mksession. 历史会话记录
 	'Shatur/neovim-session-manager',
+
 	-- 功能比较简陋不支持按键 需自定义命令或按键 详见 :help litee-filetree.nvim
 	-- A framework for building Neovim plugins
 	'ldelossa/litee.nvim',
@@ -235,8 +239,10 @@ require("lazy").setup({
 	-- Icon Picker
 	-- pick Nerd Font Icons, Symbols & Emojis
     "ziontee113/icon-picker.nvim",
+
 	-- A powerful Neovim plugin that lets users choose & modify RGB/HSL/HEX colors.
 	'ziontee113/color-picker.nvim',
+
 	-- create your own "minimap" from Treesitter Queries or Vim Regex.
 	'ziontee113/neo-minimap',
 	-- LSP signature hint as you type
@@ -247,7 +253,6 @@ require("lazy").setup({
 	'NeogitOrg/neogit',
 	-- Visual git plugin for Neovim
 	'tanvirtin/vgit.nvim',
-
 	-- 🧠 💪 // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 	-- 提供快速注释的能力
     "numToStr/Comment.nvim",

@@ -2,7 +2,7 @@
 require("mason").setup({
 	-- The directory in which to install packages.
 	-- install_root_dir = path.concat { vim.fn.stdpath "data", "mason" },
-	install_root_dir = vim.fn.expand('$HOME/.local/share/nvim') .. "/.local/share/nvim/language-server-protocol",
+	install_root_dir = vim.fn.expand('$HOME') .. "/.local/share/nvim/language-server-protocol",
 	ui = {
 		-- Whether to automatically check for new versions when opening the :Mason window.
 		check_outdated_packages_on_open = false,

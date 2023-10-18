@@ -40,13 +40,13 @@
 		"typeParameter": "",
 		"default": ""
 	},
-	"session.directory": "/Users/imxieke/.local/share/nvim/sessions",
+	"session.directory": "${HOME}/.local/share/nvim/sessions",
 	"session.restartOnSessionLoad": true,
 	"snippets.priority": 90,
 	"snippets.loadFromExtensions": true,
 	"snippets.loadVSCodeProjectSnippets": true,
 	"snippets.textmateSnippetsRoots": [
-		"/Users/imxieke/.vscode/extensions/cloudflying-snippets"
+		"${HOME}/.vscode/extensions/cloudflying-snippets"
 	],
 	"snippets.ultisnips.directories": [
 		"UltiSnips",
@@ -142,11 +142,11 @@
 	"javascript.preferences.quoteStyle": "double",
 	"tsserver.maxTsServerMemory": "1024M",
 	"typescript.preferences.quoteStyle": "double",
-	"go.goplsPath": "/Users/imxieke/.go/bin/gopls",
+	"go.goplsPath": "${HOME}/.go/bin/gopls",
 	"intelephense.enable": true,
 	"intelephense.path": "/usr/local/bin/intelephense",
-	"intelephense.pest.path": "/Users/imxieke/.composer/vendor/bin/pest",
-	"intelephense.composer.path": "/Users/imxieke/.bin/composer",
+	"intelephense.pest.path": "${HOME}/.composer/vendor/bin/pest",
+	"intelephense.composer.path": "${HOME}/.bin/composer",
 	"intelephense.phpunit.colors": true,
 	"intelephense.phpunit.debug": true,
 	"intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
@@ -185,14 +185,14 @@
 	"markdown-preview-enhanced.enableScriptExecution": true,
 	"translator.enableHover": true,
 	"phpstan.enable": true,
-	"phpstan.toolPath": "/Users/imxieke/.composer/vendor/bin/phpstan",
+	"phpstan.toolPath": "${HOME}/.composer/vendor/bin/phpstan",
 	"phpstan.level": "max",
 	"phpstan.memoryLimit": "1024M",
 	"phpstan.download.checkOnStartup": false,
 	"Lua.telemetry.enable": true,
 	"rust-client.enable": true,
-	"rust-client.rustupPath": "/Users/imxieke/.cargo/bin/rustup",
-	"rust-client.rlsPath": "/Users/imxieke/.cargo/bin/rls",
+	"rust-client.rustupPath": "${HOME}/.cargo/bin/rustup",
+	"rust-client.rlsPath": "${HOME}/.cargo/bin/rls",
 	"rust-client.channel": "stable",
 	"psalm.enable": true,
 	"psalm.disableCompletion": false,
@@ -204,7 +204,7 @@
 		"psalm.xml.dist"
 	],
 	"psalm.phpExecutablePath": "/usr/local/opt/php@8.2/bin/php",
-	"psalm.psalmScriptPath": "/Users/imxieke/.composer/vendor/bin/psalm-language-server",
+	"psalm.psalmScriptPath": "${HOME}/.composer/vendor/bin/psalm-language-server",
 	"psalm.psalmScriptExtraArgs": [],
 	"psalm.phpExecutableArgs": [
 		"-dxdebug.remote_autostart=0",
@@ -222,7 +222,7 @@
 		}
 	],
 	"php-cs-fixer.enable": false,
-	"php-cs-fixer.toolPath": "/Users/imxieke/.composer/vendor/bin/php-cs-fixer",
+	"php-cs-fixer.toolPath": "${HOME}/.composer/vendor/bin/php-cs-fixer",
 	"php-cs-fixer.activateTool": "php-cs-fixer",
 	"php-cs-fixer.rules": "@PSR12",
 	"htmlhint.enable": true,

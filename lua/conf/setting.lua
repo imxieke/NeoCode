@@ -7,7 +7,7 @@ vim.cmd('filetype detect') -- detect the file type again
 
 -- vim.g.mapleader      = '\\'
 vim.opt.number = true  			-- show line numbers
-vim.opt.relativenumber = true  	-- show relative line numbers
+vim.opt.relativenumber = false   	-- show relative line numbers 行数会跟着上下移动变化
 -- 编码
 vim.opt.encoding = 'utf-8' -- 文件编码
 vim.opt.fileencoding = 'utf-8' -- 制表符占用空格数
@@ -29,7 +29,7 @@ vim.opt.hlsearch = true -- highlight text while searching
 -- TODO: 帮助文档语言 似乎对 neovim 无效 也许是文档缺失 待确认
 vim.opt.helplang = 'cn'
 vim.opt.hidden = false -- Allow switching from unsaved buffer
-vim.opt.wrap = true -- 自动折行
+vim.opt.wrap = false -- 自动折行
 vim.opt.modeline = true -- Allow modeline
 -- vim.opt.lazyredraw = true -- Use lazy redraw
 vim.opt.smartindent = true -- 智能缩进

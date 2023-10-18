@@ -54,7 +54,7 @@ require 'plugins/notify'
 require 'plugins/noice'
 require 'plugins/todo'
 -- require 'plugins/filetype'
-require 'plugins/lsp_installer'
+-- require 'plugins/lsp_installer'
 require 'plugins/bufferline'
 
 require 'plugins/symbols_outline'
