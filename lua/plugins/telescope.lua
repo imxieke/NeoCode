@@ -210,8 +210,12 @@ telescope.setup {
 		-- 	prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
 		-- },
 		aerial = {
-			-- Display symbols as <root>.<parent>.<symbol>
-			show_nesting = true
+		-- Display symbols as <root>.<parent>.<symbol>
+		show_nesting = {
+			["_"] = false, -- This key will be the default
+			json = true, -- You can set the option for specific filetypes
+			yaml = true,
+		},
 		},
 		lsp_handlers = {
 			disable = {
@@ -261,7 +265,7 @@ telescope.load_extension('notify')
 telescope.load_extension("noice")
 -- telescope.load_extension('coc')
 -- 来自 stevearc/aerial.nvim
--- telescope.load_extension('aerial')
+telescope.load_extension('aerial')
 -- telescope.extensions.live_grep_args.live_grep_args()
 -- telescope.load_extension('media_files')
 -- telescope.load_extension('luasnip')
