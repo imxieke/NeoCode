@@ -1,7 +1,7 @@
 lua require('autoloader')
 
 " 将 nvim 目录添加至 runtimepath
-set runtimepath+="/User/imxieke/.config/nvim"
+set runtimepath+="$HOME/.config/nvim"
 
 "  rcarriga/nvim-notify
 "  自定义通知颜色

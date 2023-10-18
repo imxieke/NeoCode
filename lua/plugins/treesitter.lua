@@ -15,7 +15,7 @@ vim.wo.foldlevel   = 99
 -- })
 
 require 'nvim-treesitter.configs'.setup {
-	parser_install_dir = "/Users/imxieke/.local/share/nvim/nvim-treesitter",
+	parser_install_dir = vim.fn.expand('$HOME') .. "/.local/share/nvim/nvim-treesitter",
 	-- A list of parser names, or "all"
 	ensure_installed = {
 		"bash",

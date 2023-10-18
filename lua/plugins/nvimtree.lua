@@ -5,7 +5,7 @@ require("nvim-tree").setup({
 	-- open_on_setup = false,
 	-- open_on_setup_file = false,
 	open_on_tab = true,
-	root_dirs = { "/Users/imxieke" },
+	root_dirs = { vim.fn.expand('$HOME') },
 	auto_reload_on_write = true,
 	view = {
 		adaptive_size = false,
@@ -24,7 +24,7 @@ require("nvim-tree").setup({
 		highlight_git = false,
 		full_name = false,
 		highlight_opened_files = "none",
-		root_folder_modifier = ":/Users/imxieke",
+		root_folder_modifier = ":" .. vim.fn.expand('$HOME'),
 		indent_markers = {
 			enable = false,
 			icons = {

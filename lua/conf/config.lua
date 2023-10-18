@@ -110,5 +110,3 @@ require('nvim-autopairs').enable()
 require('hlsearch').setup()
 -- nvimdev/nerdicons.nvim
 require('nerdicons').setup({})
-
--- vim.opt.runtimepath = vim.opt.runtimepath + '/Users/imxieke/Code/Project/Git/vscode-snippets'

@@ -6,7 +6,7 @@ telescope.setup {
 	defaults = {
 		generic_sorter = require('mini.fuzzy').get_telescope_sorter,
 		history = {
-			path = '/Users/imxieke/.local/share/nvim/databases/telescope_history.sqlite3',
+			path = vim.fn.expand('$HOME') .. '/.local/share/nvim/databases/telescope_history.sqlite3',
 			limit = 5000,
 		}
 	},
@@ -47,16 +47,16 @@ telescope.setup {
 			auto_quoting = true -- enable/disable auto-quoting
 		},
 		frecency = {
-			db_root = "/Users/imxieke/.local/share/nvim/databases",
+			db_root = vim.fn.expand('$HOME') ..  "/.local/share/nvim/databases",
 			show_scores = true,
 			show_unindexed = true,
 			ignore_patterns = { "*.git/*"},
 			disable_devicons = false,
 			workspaces = {
-				[".config"]   = "/Users/imxieke/.config",
-				["share"]     = "/Users/imxieke/.local/share",
-				["Code"]      = "/Users/imxieke/Code",
-				["Downloads"] = "/Users/imxieke/Downloads"
+				[".config"]   = vim.fn.expand('$HOME') .. "/.config",
+				["share"]     = vim.fn.expand('$HOME') .. "/.local/share",
+				["Code"]      = vim.fn.expand('$HOME') .. "/Code",
+				["Downloads"] = vim.fn.expand('$HOME') .. "/Downloads"
 			}
 		},
 		file_browser = {
@@ -272,4 +272,4 @@ telescope.load_extension('coc')
 -- telescope.extensions.ctags_outline.outline()
 -- telescope.extensions.ctags_outline.outline({ buf = 'all' })
 
-require("telescope.health").check()
+-- require("telescope.health").check()
