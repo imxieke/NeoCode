@@ -87,29 +87,6 @@ telescope.setup {
 			use_fd = true,
 			git_status = true,
 		},
-		bookmarks = {
-			-- Available: 'brave', 'buku', 'chrome', 'chrome_beta', 'edge', 'safari', 'firefox', 'vivaldi'
-			selected_browser = 'chrome',
-
-			-- Either provide a shell command to open the URL
-			url_open_command = 'open',
-
-			-- Or provide the plugin name which is already installed
-			-- Available: 'vim_external', 'open_browser'
-			url_open_plugin = nil,
-
-			-- Show the full path to the bookmark instead of just the bookmark name
-			full_path = true,
-
-			-- Provide a custom profile name for Firefox
-			firefox_profile_name = nil,
-
-			-- Add a column which contains the tags for each bookmark for buku
-			buku_include_tags = false,
-
-			-- Provide debug messages
-			debug = false,
-		},
 		emoji = {
 			action = function(emoji)
 				-- argument emoji is a table.
@@ -254,7 +231,6 @@ telescope.load_extension('ag')
 telescope.load_extension('cheat')
 telescope.load_extension('gh')
 telescope.load_extension('fzf')
-telescope.load_extension('bookmarks')
 telescope.load_extension('heading')
 telescope.load_extension('emoji')
 telescope.load_extension('glyph')
@@ -277,3 +253,28 @@ telescope.load_extension('aerial')
 -- telescope.extensions.ctags_outline.outline({ buf = 'all' })
 
 -- require("telescope.health").check()
+
+-- #TODO raindrop
+-- telescope.load_extension('bookmarks')
+require('browser_bookmarks').setup({
+    -- Available: 'brave', 'buku', 'chrome', 'chrome_beta', 'edge', 'safari', 'firefox', 'vivaldi'
+    selected_browser = 'chrome',
+    -- Either provide a shell command to open the URL
+    url_open_command = 'open',
+
+    -- Or provide the plugin name which is already installed
+    -- Available: 'vim_external', 'open_browser'
+    url_open_plugin = nil,
+
+    -- Show the full path to the bookmark instead of just the bookmark name
+    full_path = true,
+
+    -- Provide a custom profile name for Firefox
+    firefox_profile_name = nil,
+
+    -- Add a column which contains the tags for each bookmark for buku
+    buku_include_tags = false,
+
+    -- Provide debug messages
+    debug = false,
+})

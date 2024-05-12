@@ -21,7 +21,7 @@ vim.api.nvim_create_user_command('GitUI',
 -- 代码搜索
 vim.api.nvim_create_user_command('CodeSearch', 'lua require("telescope").extensions.live_grep_args.live_grep_args()', {
     bang = true,
-    desc = "GitUI For Neovim"
+    desc = "Telescope Code Search"
 })
 
 -- 最近文件历史排行

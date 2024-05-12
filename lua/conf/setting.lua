@@ -81,11 +81,11 @@ vim.opt.pumheight = 10 -- Make popup menu smaller
 
 -- =====================Other==================================================
 -- 禁止自动检测 Python 路径 速度太慢, 手动指定路径
-vim.g.python3_host_skip_check = false
-vim.g.python2_host_skip_check = false
-vim.g.python3_host_prog = vim.fn.expand('/usr/local/bin/python3' or '/usr/bin/python3')
-vim.g.python2_host_prog = vim.fn.expand('/usr/bin/python2')
-vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
+-- vim.g.python3_host_skip_check = false
+-- vim.g.python2_host_skip_check = false
+-- vim.g.python3_host_prog = vim.fn.expand('/usr/local/bin/python3' or '/usr/bin/python3')
+-- vim.g.python2_host_prog = vim.fn.expand('/usr/bin/python2')
+-- vim.g.node_host_prog = vim.fn.expand('/usr/local/bin/node' or '/usr/bin/node')
 
 -- vim.cmd("set omnifunc=lsp#completion#OmniFunc")
 
@@ -108,7 +108,7 @@ vim.cmd("set background=dark")
 -- vim.cmd('colorscheme default')
 -- 需要配合插件使用  含有 lua 插件需启用
 -- vim.cmd('colorscheme material')
-vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme tokyonight-night")
 -- vim.cmd("colorscheme tokyonight-storm")
 -- vim.cmd("colorscheme tokyonight-day")
@@ -121,11 +121,11 @@ vim.cmd("colorscheme tokyonight")
 -- vim.g.aurora_transparent = 1     -- transparent
 -- vim.g.aurora_bold = 1     -- bold
 -- vim.g.aurora_darker = 1     -- darker background
--- vim.cmd("colorscheme aurora")
--- vim.cmd 'colorscheme monokai'
+-- vim.cmd "colorscheme aurora"
+vim.cmd 'colorscheme monokai'
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme dogrun")
-vim.cmd("colorscheme one")
+-- vim.cmd("colorscheme one")
 
 -- default neon aura
 -- vim.g.edge_style = 'default'
@@ -142,15 +142,7 @@ vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme oceanic_material")
 -- vim.cmd("colorscheme toast")
 
--- Github 系列主题
--- 亮色看着还挺好
--- Github 暗色主题背景色挺难看的
--- vim.cmd("colorscheme github_dark")
--- vim.cmd("colorscheme github_dark_colorblind")
 -- vim.cmd("colorscheme github_light")
--- vim.cmd("colorscheme github_light_colorblind")
--- 和暗色主题没什么区别 背景色纯黑 丑的一逼
--- vim.cmd("colorscheme github_dimmed")
 
 -- 背景透明
 -- ctermbg=none guibg=none`

@@ -5,6 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
+    "--depth=1",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
@@ -294,7 +295,7 @@ require("lazy").setup({
 	-- 顶部菜单以及窗口栏顶部菜单以及窗口栏
 	"akinsho/bufferline.nvim",
     -- The missing UI extensions
-    -- 支持自定义右键菜单及顶部菜单栏 
+    -- 支持自定义右键菜单及顶部菜单栏
 	-- TODO Vimscript 编写的 待替换
 	'skywind3000/vim-quickui',
 	-- UI Component Library for Neovim.

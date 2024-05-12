@@ -1,6 +1,8 @@
 require("codeium").setup({})
+-- Tabnine
 local tabnine = require('cmp_tabnine.config')
-
+-- Customize cmp highlight group
+vim.api.nvim_set_hl(0, "CmpItemKindTabNine", {fg ="#6CC644"})
 tabnine:setup({
 	max_lines = 10,
 	max_num_results = 20,
@@ -13,6 +15,7 @@ tabnine:setup({
 		-- lua = true
 	-- },
 	show_prediction_strength = false
+    -- min_percent = 0
 })
 
 -- cmp

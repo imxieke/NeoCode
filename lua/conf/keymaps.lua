@@ -197,3 +197,7 @@ vim.keymap.set({"i", "n"}, '<A-\\>', require('Comment.api').call('toggle.blockwi
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, default_opts)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, default_opts)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, default_opts)
+
+vim.keymap.set('n', '<leader>fb', require('browser_bookmarks').select, {
+  desc = 'Fuzzy search browser bookmarks',
+})
