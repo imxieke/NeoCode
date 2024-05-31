@@ -1,11 +1,4 @@
--- 插件配置信息
--- LSP
-require 'plugins/treesitter'
-require 'plugins/lsp'
-require 'plugins/lspkind'
-require 'plugins/lspsaga'
 
--- require 'plugins/coc'
 
 -- 延迟 60ms+
 
@@ -16,8 +9,7 @@ require 'plugins/undotree'
 require 'plugins/aerial'
 require 'plugins/indent_blankline'
 
--- require 'plugins/snippets'
-require 'plugins/comment'
+
 
 -- UI
 -- Statusline

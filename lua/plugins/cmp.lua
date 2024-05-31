@@ -12,7 +12,7 @@ tabnine:setup({
 	-- ignored_file_types = {
 		-- default is not to ignore
 		-- uncomment to ignore in lua:
-		-- lua = true
+		-- lua = truekaish
 	-- },
 	show_prediction_strength = false
     -- min_percent = 0
@@ -184,7 +184,8 @@ cmp.setup({
 		-- 太乱了  没什么卵用的
 		-- { name = 'rg' },
 		-- { name = 'path' },
-		{ name = 'devicons' },
+        -- 有点乱 无用的多过有用的
+		-- { name = 'devicons' },
 		{ name = 'nvim_lua' },
 		-- { name = 'nvim_lsp' },
 		-- { name = 'nvim_lsp_document_symbol' },

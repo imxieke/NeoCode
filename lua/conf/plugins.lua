@@ -97,15 +97,15 @@ require("lazy").setup({
     -- 后缀为 .UltiSnips 的 UltiSnips snippet 关键字
     -- 目录含有 snippets/*.json (prefix body description 关键字) 为 VSCode 格式
 	-- 支持 SnipMate VSCode LSP
-	-- {
-	-- 	"L3MON4D3/LuaSnip",
-	-- 	-- follow latest release.
-	-- 	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- 	-- install jsregexp (optional!).
-	-- 	build = "make install_jsregexp"
-	-- },
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp"
+	},
 	-- -- luasnip completion source for nvim-cmp
-	-- 'saadparwaiz1/cmp_luasnip',
+	'saadparwaiz1/cmp_luasnip',
 
 	-- ############################ Code Analysis ################################
 	-- lua GUI lib
