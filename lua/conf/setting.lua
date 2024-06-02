@@ -1,6 +1,12 @@
 -- ================================================================
 -- 	              通用设置
 -- ================================================================
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local home = os.getenv("HOME")
+local pwd = os.getenv("PWD")
+
 vim.cmd('syntax on') -- enable syntax  highlighting
 vim.cmd('filetype plugin indent on') -- 开启文件类型侦测 根据侦测到的不同类型加载对应的插件
 vim.cmd('filetype detect') -- detect the file type again
