@@ -1,11 +1,3 @@
-" =============================================================================
-" URL: https://github.com/sainnhe/edge
-" Filename: autoload/edge.vim
-" Author: sainnhe
-" Email: i@sainnhe.dev
-" License: MIT License
-" =============================================================================
-
 function! edge#get_configuration() "{{{
   return {
         \ 'style': get(g:, 'edge_style', 'default'),

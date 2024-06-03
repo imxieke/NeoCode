@@ -10,7 +10,7 @@
 let s:configuration = sonokai#get_configuration()
 let s:palette = sonokai#get_palette(s:configuration.style, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Mon Aug  7 07:21:35 UTC 2023'
+let s:last_modified = 'Sun Jun  2 09:17:18 UTC 2024'
 let g:sonokai_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'sonokai' && s:configuration.better_performance)
@@ -114,9 +114,11 @@ call sonokai#highlight('PmenuThumb', s:palette.none, s:palette.grey)
 if s:configuration.float_style ==# 'dim'
   call sonokai#highlight('NormalFloat', s:palette.fg, s:palette.bg_dim)
   call sonokai#highlight('FloatBorder', s:palette.grey, s:palette.bg_dim)
+  call sonokai#highlight('FloatTitle', s:palette.red, s:palette.bg_dim, 'bold')
 else
   call sonokai#highlight('NormalFloat', s:palette.fg, s:palette.bg2)
   call sonokai#highlight('FloatBorder', s:palette.grey, s:palette.bg2)
+  call sonokai#highlight('FloatTitle', s:palette.red, s:palette.bg2, 'bold')
 endif
 call sonokai#highlight('Question', s:palette.yellow, s:palette.none)
 if s:configuration.spell_foreground ==# 'none'
@@ -162,23 +164,35 @@ call sonokai#highlight('debugBreakpoint', s:palette.bg0, s:palette.red)
 call sonokai#highlight('ToolbarButton', s:palette.bg0, s:palette.bg_blue)
 if has('nvim')
   call sonokai#highlight('Substitute', s:palette.bg0, s:palette.yellow)
-  highlight! link WinBarNC Grey
+  highlight! link WinBar StatusLine
+  highlight! link WinBarNC StatusLineNC
+  if s:configuration.diagnostic_text_highlight
+    call sonokai#highlight('DiagnosticError', s:palette.red, s:palette.diff_red)
+    call sonokai#highlight('DiagnosticUnderlineError', s:palette.none, s:palette.diff_red, 'undercurl', s:palette.red)
+    call sonokai#highlight('DiagnosticWarn', s:palette.yellow, s:palette.diff_yellow)
+    call sonokai#highlight('DiagnosticUnderlineWarn', s:palette.none, s:palette.diff_yellow, 'undercurl', s:palette.yellow)
+    call sonokai#highlight('DiagnosticInfo', s:palette.blue, s:palette.diff_blue)
+    call sonokai#highlight('DiagnosticUnderlineInfo', s:palette.none, s:palette.diff_blue, 'undercurl', s:palette.blue)
+    call sonokai#highlight('DiagnosticHint', s:palette.green, s:palette.diff_green)
+    call sonokai#highlight('DiagnosticUnderlineHint', s:palette.none, s:palette.diff_green, 'undercurl', s:palette.green)
+  else
+    call sonokai#highlight('DiagnosticError', s:palette.red, s:palette.none)
+    call sonokai#highlight('DiagnosticUnderlineError', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
+    call sonokai#highlight('DiagnosticWarn', s:palette.yellow, s:palette.none)
+    call sonokai#highlight('DiagnosticUnderlineWarn', s:palette.none, s:palette.none, 'undercurl', s:palette.yellow)
+    call sonokai#highlight('DiagnosticInfo', s:palette.blue, s:palette.none)
+    call sonokai#highlight('DiagnosticUnderlineInfo', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
+    call sonokai#highlight('DiagnosticHint', s:palette.green, s:palette.none)
+    call sonokai#highlight('DiagnosticUnderlineHint', s:palette.none, s:palette.none, 'undercurl', s:palette.green)
+  endif
   highlight! link DiagnosticFloatingError ErrorFloat
   highlight! link DiagnosticFloatingWarn WarningFloat
   highlight! link DiagnosticFloatingInfo InfoFloat
   highlight! link DiagnosticFloatingHint HintFloat
-  highlight! link DiagnosticError ErrorText
-  highlight! link DiagnosticWarn WarningText
-  highlight! link DiagnosticInfo InfoText
-  highlight! link DiagnosticHint HintText
   highlight! link DiagnosticVirtualTextError VirtualTextError
   highlight! link DiagnosticVirtualTextWarn VirtualTextWarning
   highlight! link DiagnosticVirtualTextInfo VirtualTextInfo
   highlight! link DiagnosticVirtualTextHint VirtualTextHint
-  highlight! link DiagnosticUnderlineError ErrorText
-  highlight! link DiagnosticUnderlineWarn WarningText
-  highlight! link DiagnosticUnderlineInfo InfoText
-  highlight! link DiagnosticUnderlineHint HintText
   highlight! link DiagnosticSignError RedSign
   highlight! link DiagnosticSignWarn YellowSign
   highlight! link DiagnosticSignInfo BlueSign
@@ -206,6 +220,7 @@ if has('nvim')
   highlight! link LspReferenceText CurrentWord
   highlight! link LspReferenceRead CurrentWord
   highlight! link LspReferenceWrite CurrentWord
+  highlight! link LspInlayHint InlayHints
   highlight! link LspCodeLens VirtualTextInfo
   highlight! link LspCodeLensSeparator VirtualTextHint
   highlight! link LspSignatureActiveParameter Search
@@ -343,6 +358,11 @@ elseif s:configuration.current_word ==# 'grey background'
   call sonokai#highlight('CurrentWord', s:palette.none, s:palette.bg2)
 else
   call sonokai#highlight('CurrentWord', s:palette.none, s:palette.none, s:configuration.current_word)
+endif
+if s:configuration.inlay_hints_background ==# 'none'
+  highlight! link InlayHints LineNr
+else
+  call sonokai#highlight('InlayHints', s:palette.grey, s:palette.bg_dim)
 endif
 " Define a color for each LSP item kind to create highlights for nvim-cmp, aerial.nvim, nvim-navic and coc.nvim
 let g:sonokai_lsp_kind_color = [
@@ -496,16 +516,20 @@ highlight! link TSType BlueItalic
 highlight! link TSTypeBuiltin BlueItalic
 highlight! link TSTypeDefinition BlueItalic
 highlight! link TSTypeQualifier Red
-highlight! link TSURI markdownUrl
+call sonokai#highlight('TSURI', s:palette.blue, s:palette.none, 'underline')
 highlight! link TSVariable Fg
 highlight! link TSVariableBuiltin PurpleItalic
-if has('nvim-0.8.0')
+if has('nvim-0.8')
   highlight! link @annotation TSAnnotation
   highlight! link @attribute TSAttribute
   highlight! link @boolean TSBoolean
   highlight! link @character TSCharacter
   highlight! link @character.special TSCharacterSpecial
   highlight! link @comment TSComment
+  highlight! link @comment.error TSDanger
+  highlight! link @comment.note TSNote
+  highlight! link @comment.todo TSTodo
+  highlight! link @comment.warning TSWarning
   highlight! link @conceal Grey
   highlight! link @conditional TSConditional
   highlight! link @constant TSConstant
@@ -514,7 +538,10 @@ if has('nvim-0.8.0')
   highlight! link @constructor TSConstructor
   highlight! link @debug TSDebug
   highlight! link @define TSDefine
-  highlight! link @error TSError
+  highlight! link @diff.delta diffChanged
+  highlight! link @diff.minus diffRemoved
+  highlight! link @diff.plus diffAdded
+  highlight! link @error TSError " This has been removed from nvim-treesitter
   highlight! link @exception TSException
   highlight! link @field TSField
   highlight! link @float TSFloat
@@ -522,18 +549,47 @@ if has('nvim-0.8.0')
   highlight! link @function.builtin TSFuncBuiltin
   highlight! link @function.call TSFunctionCall
   highlight! link @function.macro TSFuncMacro
+  highlight! link @function.method TSMethod
+  highlight! link @function.method.call TSMethodCall
   highlight! link @include TSInclude
   highlight! link @keyword TSKeyword
+  highlight! link @keyword.conditional TSConditional
+  highlight! link @keyword.debug TSDebug
+  highlight! link @keyword.directive TSPreProc
+  highlight! link @keyword.directive.define TSDefine
+  highlight! link @keyword.exception TSException
   highlight! link @keyword.function TSKeywordFunction
+  highlight! link @keyword.import TSInclude
   highlight! link @keyword.operator TSKeywordOperator
+  highlight! link @keyword.repeat TSRepeat
   highlight! link @keyword.return TSKeywordReturn
+  highlight! link @keyword.storage TSStorageClass
   highlight! link @label TSLabel
+  highlight! link @markup.emphasis TSEmphasis
+  highlight! link @markup.environment TSEnvironment
+  highlight! link @markup.environment.name TSEnvironmentName
+  highlight! link @markup.heading TSTitle
+  highlight! link @markup.link TSTextReference
+  highlight! link @markup.link.label TSStringSpecial
+  highlight! link @markup.link.url TSURI
+  highlight! link @markup.list TSPunctSpecial
+  highlight! link @markup.list.checked Green
+  highlight! link @markup.list.unchecked Ignore
+  highlight! link @markup.math TSMath
+  highlight! link @markup.note TSNote
+  highlight! link @markup.quote Grey
+  highlight! link @markup.raw TSLiteral
+  highlight! link @markup.strike TSStrike
+  highlight! link @markup.strong TSStrong
+  highlight! link @markup.underline TSUnderline
   highlight! link @math TSMath
   highlight! link @method TSMethod
   highlight! link @method.call TSMethodCall
+  highlight! link @module TSNamespace
   highlight! link @namespace TSNamespace
   highlight! link @none TSNone
   highlight! link @number TSNumber
+  highlight! link @number.float TSFloat
   highlight! link @operator TSOperator
   highlight! link @parameter TSParameter
   highlight! link @parameter.reference TSParameterReference
@@ -549,7 +605,10 @@ if has('nvim-0.8.0')
   highlight! link @string TSString
   highlight! link @string.escape TSStringEscape
   highlight! link @string.regex TSStringRegex
+  highlight! link @string.regexp TSStringRegex
   highlight! link @string.special TSStringSpecial
+  highlight! link @string.special.symbol TSSymbol
+  highlight! link @string.special.uri TSURI
   highlight! link @symbol TSSymbol
   highlight! link @tag TSTag
   highlight! link @tag.attribute TSTagAttribute
@@ -582,8 +641,10 @@ if has('nvim-0.8.0')
   highlight! link @uri TSURI
   highlight! link @variable TSVariable
   highlight! link @variable.builtin TSVariableBuiltin
+  highlight! link @variable.member TSField
+  highlight! link @variable.parameter TSParameter
 endif
-if has('nvim-0.9.0')
+if has('nvim-0.9')
   highlight! link @lsp.type.class TSType
   highlight! link @lsp.type.comment TSComment
   highlight! link @lsp.type.decorator TSFunction
@@ -628,7 +689,7 @@ highlight! link CocPumMenu Pmenu
 highlight! link CocMenuSel PmenuSel
 highlight! link CocDisabled Grey
 highlight! link CocSnippetVisual DiffAdd
-highlight! link CocInlayHint LineNr
+highlight! link CocInlayHint InlayHints
 highlight! link CocNotificationProgress Green
 highlight! link CocNotificationButton PmenuSel
 highlight! link CocSemClass TSType
@@ -689,8 +750,8 @@ highlight! link LspWarningHighlight WarningText
 highlight! link LspInformationHighlight InfoText
 highlight! link LspHintHighlight HintText
 highlight! link lspReference CurrentWord
-highlight! link lspInlayHintsType LineNr
-highlight! link lspInlayHintsParameter LineNr
+highlight! link lspInlayHintsType InlayHints
+highlight! link lspInlayHintsParameter InlayHints
 highlight! link LspSemanticType TSType
 highlight! link LspSemanticClass TSType
 highlight! link LspSemanticEnum TSType
@@ -719,7 +780,7 @@ highlight! link YcmErrorLine ErrorLine
 highlight! link YcmWarningLine WarningLine
 highlight! link YcmErrorSection ErrorText
 highlight! link YcmWarningSection WarningText
-highlight! link YcmInlayHint LineNr
+highlight! link YcmInlayHint InlayHints
 highlight! link YcmErrorText VirtualTextError
 highlight! link YcmWarningText VirtualTextWarning
 if !has('nvim') && has('textprop') && !exists('g:YCM_HIGHLIGHT_GROUP')
@@ -1070,8 +1131,10 @@ highlight! link HopNextKey2 Blue
 highlight! link HopUnmatched Grey
 " }}}
 " lukas-reineke/indent-blankline.nvim {{{
-call sonokai#highlight('IndentBlanklineContextChar', s:palette.grey, s:palette.none, 'nocombine')
-call sonokai#highlight('IndentBlanklineChar', s:palette.grey_dim, s:palette.none, 'nocombine')
+call sonokai#highlight('IblScope', s:palette.grey, s:palette.none, 'nocombine')
+call sonokai#highlight('IblIndent', s:palette.bg4, s:palette.none, 'nocombine')
+highlight! link IndentBlanklineContextChar IblScope
+highlight! link IndentBlanklineChar IblIndent
 highlight! link IndentBlanklineSpaceChar IndentBlanklineChar
 highlight! link IndentBlanklineSpaceCharBlankline IndentBlanklineChar
 " }}}
@@ -1104,6 +1167,7 @@ call sonokai#highlight('BufferTabpages', s:palette.grey, s:palette.bg_dim, 'bold
 call sonokai#highlight('BufferTabpageFill', s:palette.bg_dim, s:palette.bg_dim)
 " }}}
 " rcarriga/nvim-notify {{{
+call sonokai#highlight('NotifyBackground', s:palette.none, s:palette.bg0)
 highlight! link NotifyERRORBorder Red
 highlight! link NotifyWARNBorder Yellow
 highlight! link NotifyINFOBorder Green
@@ -1577,10 +1641,10 @@ call sonokai#highlight('markdownH3', s:palette.yellow, s:palette.none, 'bold')
 call sonokai#highlight('markdownH4', s:palette.green, s:palette.none, 'bold')
 call sonokai#highlight('markdownH5', s:palette.blue, s:palette.none, 'bold')
 call sonokai#highlight('markdownH6', s:palette.purple, s:palette.none, 'bold')
-call sonokai#highlight('markdownUrl', s:palette.blue, s:palette.none, 'underline')
 call sonokai#highlight('markdownItalic', s:palette.none, s:palette.none, 'italic')
 call sonokai#highlight('markdownBold', s:palette.none, s:palette.none, 'bold')
 call sonokai#highlight('markdownItalicDelimiter', s:palette.grey, s:palette.none, 'italic')
+highlight! link markdownUrl TSURI
 highlight! link markdownCode Green
 highlight! link markdownCodeBlock Green
 highlight! link markdownCodeDelimiter Green
@@ -1611,6 +1675,26 @@ highlight! link mkdListItem Red
 highlight! link mkdRule Purple
 highlight! link mkdDelimiter Grey
 highlight! link mkdId Yellow
+" }}}
+" nvim-treesitter/nvim-treesitter {{{
+if has('nvim-0.8')
+  highlight! link @markup.heading.1.markdown markdownH1
+  highlight! link @markup.heading.2.markdown markdownH2
+  highlight! link @markup.heading.3.markdown markdownH3
+  highlight! link @markup.heading.4.markdown markdownH4
+  highlight! link @markup.heading.5.markdown markdownH5
+  highlight! link @markup.heading.6.markdown markdownH6
+  highlight! link @markup.heading.1.marker.markdown @conceal
+  highlight! link @markup.heading.2.marker.markdown @conceal
+  highlight! link @markup.heading.3.marker.markdown @conceal
+  highlight! link @markup.heading.4.marker.markdown @conceal
+  highlight! link @markup.heading.5.marker.markdown @conceal
+  highlight! link @markup.heading.6.marker.markdown @conceal
+  if !has('nvim-0.10')
+    call sonokai#highlight('@markup.italic', s:palette.none, s:palette.none, 'italic')
+    call sonokai#highlight('@markup.strikethrough', s:palette.none, s:palette.none, 'strikethrough')
+  endif
+endif
 " }}}
 " syn_end }}}
 " syn_begin: vimwiki {{{
@@ -1704,7 +1788,7 @@ highlight! link htmlString Green
 " }}}
 " nvim-treesitter/nvim-treesitter {{{
 highlight! link htmlTSText TSNone
-if has('nvim-0.8.0')
+if has('nvim-0.8')
   highlight! link @text.html htmlTSText
 endif
 " }}}
@@ -1978,7 +2062,7 @@ highlight! link jsxEscapeJs Purple
 highlight! link jsxAttrib Blue
 " }}}
 " nvim-treesitter/nvim-treesitter {{{
-if has('nvim-0.9.0')
+if has('nvim-0.9')
   highlight! link @lsp.typemod.variable.defaultLibrary.javascript TSConstBuiltin
   highlight! link @lsp.typemod.variable.defaultLibrary.javascriptreact TSConstBuiltin
 endif
@@ -2142,11 +2226,11 @@ highlight! link typescriptMathStaticProp Fg
 " nvim-treesitter/nvim-treesitter {{{
 highlight! link tsxTSTag OrangeItalic
 highlight! link tsxTSConstructor TSType
-if has('nvim-0.8.0')
+if has('nvim-0.8')
   highlight! link @tag.tsx tsxTSTag
   highlight! link @constructor.tsx tsxTSConstructor
 endif
-if has('nvim-0.9.0')
+if has('nvim-0.9')
   highlight! link @lsp.typemod.variable.defaultLibrary.typescript TSConstBuiltin
   highlight! link @lsp.typemod.variable.defaultLibrary.typescriptreact TSConstBuiltin
 endif
@@ -2281,7 +2365,7 @@ highlight! link luaDocTag Green
 " }}}
 " nvim-treesitter/nvim-treesitter {{{
 highlight! link luaTSConstructor luaBraces
-if has('nvim-0.8.0')
+if has('nvim-0.8')
   highlight! link @constructor.lua luaTSConstructor
 endif
 " }}}
@@ -2730,7 +2814,7 @@ highlight! link gitcommitArrow Grey
 highlight! link gitcommitFile Green
 " }}}
 " nvim-treesitter/nvim-treesitter {{{
-if has('nvim-0.8.0')
+if has('nvim-0.8')
   highlight! link @text.gitcommit TSNone
 endif
 " }}}

@@ -162,6 +162,7 @@ require("lazy").setup({
     "fcying/telescope-ctags-outline.nvim",
     -- Create key-bindings and watch them with telescope 🔭
     "LinArcX/telescope-command-palette.nvim",
+    "radyz/telescope-gitsigns",
 
 	-- ######################### File && Search ######################################
 	-- Improved fzf.vim written in lua
@@ -257,6 +258,8 @@ require("lazy").setup({
 	'ray-x/lsp_signature.nvim',
 	-- A format runner for Neovim.
 	'mhartington/formatter.nvim',
+    -- Super fast git decorations implemented purely in Lua.
+    'lewis6991/gitsigns.nvim',
 	-- magit for neovim
 	'NeogitOrg/neogit',
 	-- Visual git plugin for Neovim

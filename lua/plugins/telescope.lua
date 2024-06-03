@@ -242,6 +242,8 @@ telescope.load_extension("noice")
 -- telescope.load_extension('coc')
 -- 来自 stevearc/aerial.nvim
 telescope.load_extension('aerial')
+-- radyz/telescope-gitsigns
+telescope.load_extension('git_signs')
 -- telescope.extensions.live_grep_args.live_grep_args()
 -- telescope.load_extension('media_files')
 -- telescope.load_extension('luasnip')

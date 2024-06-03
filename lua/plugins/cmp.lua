@@ -179,7 +179,7 @@ cmp.setup({
 		{ name = 'cmp_tabnine' },
 		{ name = 'codeium' },
 		{ name = 'treesitter' },
-		{ name = 'luasnip' }, -- For luasnip users.
+		-- { name = 'luasnip' }, -- For luasnip users.
 		-- 搜索文件提供关键字
 		-- 太乱了  没什么卵用的
 		-- { name = 'rg' },

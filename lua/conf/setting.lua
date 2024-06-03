@@ -122,13 +122,14 @@ vim.cmd("set background=dark")
 -- vim.cmd("colorscheme sick")
 -- vim.cmd("colorscheme sick-light")
 -- vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme gruvbox-material")
 
 -- vim.g.aurora_italic = 1     -- italic
 -- vim.g.aurora_transparent = 1     -- transparent
 -- vim.g.aurora_bold = 1     -- bold
 -- vim.g.aurora_darker = 1     -- darker background
 -- vim.cmd "colorscheme aurora"
-vim.cmd 'colorscheme monokai'
+-- vim.cmd 'colorscheme monokai'
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme dogrun")
 -- vim.cmd("colorscheme one")
