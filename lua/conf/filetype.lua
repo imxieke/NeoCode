@@ -21,21 +21,25 @@ vim.cmd("autocmd FileType gitcommit let b:EditorConfig_disable = 1")
 vim.filetype.add({
   -- Detect and assign filetype based on the extension of the filename
   extension = {
-    mdx = "mdx",
-    log = "log",
+    mdx  = "mdx",
     conf = "conf",
-    env = "dosini", 		-- autocmd 不生效
-    ini = "dosini",
+    log  = "log",
+    conf = "conf",
+    env  = "dosini", 		-- autocmd 不生效
+    ini  = "dosini",
   },
   -- Detect and apply filetypes based on the entire filename
   filename = {
     [".env"] = "dosini", 	-- autocmd 不生效
     ["env"] = "dosini",
     ["tsconfig.json"] = "jsonc",
+    [".yamlfmt"] = "yaml",
   },
   -- Detect and apply filetypes based on certain patterns of the filenames
   pattern = {
     -- INFO: Match filenames like - ".env.example", ".env.local" and so on
     ["%.env%.[%w_.-]+"] = "dosini",
+    ["tsconfig%."] = "jsonc",
+    ["docker%-compose%.y.?ml"] = "yaml.docker-compose",
   },
 })
