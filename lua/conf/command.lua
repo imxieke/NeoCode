@@ -42,6 +42,11 @@ vim.api.nvim_create_user_command('FileBrowser', 'lua require("telescope").extens
     desc = "Telescope File Browser"
 })
 
+-- vim.api.nvim_create_user_command('snippets', 'require('telescope').load_extension('luasnip')', {
+--     bang = true,
+--     desc = "Lua Snippets"
+-- })
+
 -- undotree
 vim.api.nvim_create_user_command('UndoTree', "lua require('undotree').toggle()", {
     bang = true,

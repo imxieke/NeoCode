@@ -244,12 +244,10 @@ telescope.load_extension("noice")
 telescope.load_extension('aerial')
 -- radyz/telescope-gitsigns
 telescope.load_extension('git_signs')
+telescope.load_extension('luasnip')
 -- telescope.extensions.live_grep_args.live_grep_args()
 -- telescope.load_extension('media_files')
--- telescope.load_extension('luasnip')
--- require'telescope'.extensions.luasnip.luasnip{}
 -- require'telescope'.extensions.ultisnips.ultisnips{}
--- vim.cmd [[ Telescope luasnip ]]
 -- show all opened buf outline(use current buf filetype)
 -- telescope.extensions.ctags_outline.outline()
 -- telescope.extensions.ctags_outline.outline({ buf = 'all' })

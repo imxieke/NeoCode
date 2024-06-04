@@ -100,7 +100,6 @@ require("lazy").setup({
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
-		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp"
 	},
@@ -163,18 +162,31 @@ require("lazy").setup({
     -- Create key-bindings and watch them with telescope 🔭
     "LinArcX/telescope-command-palette.nvim",
     "radyz/telescope-gitsigns",
+    "benfowler/telescope-luasnip.nvim",
 
 	-- ######################### File && Search ######################################
 	-- Improved fzf.vim written in lua
 	'ibhagwan/fzf-lua',
 	-- File Explorer
 	'nvim-tree/nvim-tree.lua',
-
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        ---@type Flash.Config
+        opts = {},
+        -- stylua: ignore
+        keys = {
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+            { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+            { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+        },
+    },
 	-- ############################ Snippets #########################################
 	-- VSCode Format
 	-- Snippets collection for a set of different programming languages.
 	'rafamadriz/friendly-snippets',
-
 
 	-- ################################ Utils ########################################
 	-- improve the default vim.ui interfaces
@@ -203,8 +215,9 @@ require("lazy").setup({
 	"sudormrfbin/cheatsheet.nvim",
 
     -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+    -- null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     -- 似乎还可以提供 snippets 功能 luasnip
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
 
     -- 💻 Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
     -- 自动完成 函数等信息 hover doc
@@ -256,8 +269,8 @@ require("lazy").setup({
 	'ziontee113/neo-minimap',
 	-- LSP signature hint as you type
 	'ray-x/lsp_signature.nvim',
-	-- A format runner for Neovim.
-	'mhartington/formatter.nvim',
+	-- Lightweight yet powerful formatter plugin for Neovim
+	'stevearc/conform.nvim',
     -- Super fast git decorations implemented purely in Lua.
     'lewis6991/gitsigns.nvim',
 	-- magit for neovim
@@ -273,6 +286,7 @@ require("lazy").setup({
 	-- improve neovim lsp experience
     "nvimdev/lspsaga.nvim",
 	-- auto remove search highlight and rehighlight when using n or N
+    -- 搜索高亮
 	{
 		'nvimdev/hlsearch.nvim',
 		event = 'BufRead'

@@ -47,7 +47,7 @@ require 'plugins/lspsaga'
 -- require 'plugins/coc'
 
 -- # TODO 报错
--- require 'plugins/snippets'
+require 'plugins/snippets'
 require 'plugins/comment'
 
 require 'plugins/terminal'
@@ -55,7 +55,6 @@ require 'plugins/session'
 require 'plugins/notify'
 require 'plugins/noice'
 require 'plugins/todo'
--- require 'plugins/filetype'
 require 'plugins/mason'
 require 'plugins/bufferline'
 
@@ -65,3 +64,6 @@ require 'plugins/neogit'
 require 'plugins/vgit'
 
 require 'plugins/gitsigns'
+
+-- Search
+require 'plugins/search'

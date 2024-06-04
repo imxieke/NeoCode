@@ -109,3 +109,11 @@ rm -fr ~/.config/nvim
 - spell  拼写检查脚本
 - syntax	语法高亮度文件
 - tools	工具（unicode、vimspell等）
+
+## Example
+- https://github.com/LunarVim/LunarVim
+- https://github.com/hardhackerlabs/oh-my-nvim
+- https://github.com/AstroNvim/AstroNvim
+- https://github.com/NvChad/NvChad
+- https://github.com/SpaceVim/SpaceVim
+- https://github.com/LazyVim/LazyVim

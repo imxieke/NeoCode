@@ -1,11 +1,11 @@
 vim.opt.runtimepath:append("~/.local/share/nvim/nvim-treesitter")
 
 -- fix "No folds found", or highlighting does not apply
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
-vim.wo.foldlevel   = 99
+-- vim.wo.foldlevel   = 99
 -- vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
 -- 	group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
 -- 	callback = function()
@@ -14,7 +14,7 @@ vim.wo.foldlevel   = 99
 -- 	end
 -- })
 
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
 	parser_install_dir = vim.fn.expand('$HOME') .. "/.local/share/nvim/nvim-treesitter",
 	-- A list of parser names, or "all"
 	ensure_installed = {
@@ -167,7 +167,7 @@ require 'nvim-treesitter.configs'.setup {
 	}
 }
 
-require 'treesitter-context'.setup {
+require('treesitter-context').setup {
 	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 	max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
 	trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'

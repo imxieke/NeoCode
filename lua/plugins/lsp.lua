@@ -21,12 +21,14 @@ require("lsp-colors").setup({
 	Hint = "#10B981"
 })
 
-require("null-ls").setup({
-	-- sources = {
-	-- require("null-ls").builtins.formatting.stylua,
-	-- require("null-ls").builtins.diagnostics.eslint,
-	-- require("null-ls").builtins.completion.spell
-	-- },
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.completion.spell,
+        -- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+    },
 })
 
 -- Use an on_attach function to only map the following keys

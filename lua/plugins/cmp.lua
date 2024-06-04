@@ -1,8 +1,11 @@
 require("codeium").setup({})
+
 -- Tabnine
 local tabnine = require('cmp_tabnine.config')
+
 -- Customize cmp highlight group
 vim.api.nvim_set_hl(0, "CmpItemKindTabNine", {fg ="#6CC644"})
+
 tabnine:setup({
 	max_lines = 10,
 	max_num_results = 20,
@@ -19,7 +22,7 @@ tabnine:setup({
 })
 
 -- cmp
-local cmp = require 'cmp'
+local cmp = require('cmp')
 local lspkind = require('lspkind')
 local types = require("cmp.types")
 local str = require("cmp.utils.str")
@@ -32,6 +35,7 @@ local has_words_before = function()
 end
 
 local devicons = require('nvim-web-devicons')
+
 cmp.register_source('devicons', {
 	complete = function(self, params, callback)
 		local items = {}
@@ -111,44 +115,45 @@ cmp.setup({
 				Codeium = ""
 			},
 
+            -- Deprecated
 			-- The function below will be called before any actual modifications from lspkind
 			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-			before = function(entry, vim_item)
-				-- Get the full snippet (and only keep first line)
-				local word = entry:get_insert_text()
-				if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
-					word = vim.lsp.util.parse_snippet(word)
-				end
-				word = str.oneline(word)
+			-- before = function(entry, vim_item)
+			-- 	-- Get the full snippet (and only keep first line)
+			-- 	local word = entry:get_insert_text()
+			-- 	if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
+			-- 		word = vim.lsp.util.parse_snippet(word)
+			-- 	end
+			-- 	word = str.oneline(word)
 
-				-- concatenates the string
-				-- local max = 50
-				-- if string.len(word) >= max then
-				-- 	local before = string.sub(word, 1, math.floor((max - 3) / 2))
-				-- 	word = before .. "..."
-				-- end
+			-- 	-- concatenates the string
+			-- 	-- local max = 50
+			-- 	-- if string.len(word) >= max then
+			-- 	-- 	local before = string.sub(word, 1, math.floor((max - 3) / 2))
+			-- 	-- 	word = before .. "..."
+			-- 	-- end
 
-				if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
-					and string.sub(vim_item.abbr, -1, -1) == "~"
-				then
-					word = word .. "~"
-				end
-				vim_item.abbr = word
+			-- 	if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
+			-- 		and string.sub(vim_item.abbr, -1, -1) == "~"
+			-- 	then
+			-- 		word = word .. "~"
+			-- 	end
+			-- 	vim_item.abbr = word
 
-				-- tzachar/cmp-tabnine
-				-- vim_item.kind = lspkind.presets.default[vim_item.kind]
-				vim_item.kind = lsp_symbols[vim_item.kind]
-				local menu = lsp_menu[entry.source.name]
-				print(entry.source.name)
-				if entry.source.name == 'cmp_tabnine' then
-					if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-						menu = entry.completion_item.data.detail .. ' ' .. menu
-					end
-					vim_item.kind = ''
-				end
-				vim_item.menu = menu
-				return vim_item
-			end
+			-- 	-- tzachar/cmp-tabnine
+			-- 	-- vim_item.kind = lspkind.presets.default[vim_item.kind]
+			-- 	vim_item.kind = lsp_symbols[vim_item.kind]
+			-- 	local menu = lsp_menu[entry.source.name]
+			-- 	print(entry.source.name)
+			-- 	if entry.source.name == 'cmp_tabnine' then
+			-- 		if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+			-- 			menu = entry.completion_item.data.detail .. ' ' .. menu
+			-- 		end
+			-- 		vim_item.kind = ''
+			-- 	end
+			-- 	vim_item.menu = menu
+			-- 	return vim_item
+			-- end
 		})
 	},
 	window = {
@@ -178,18 +183,18 @@ cmp.setup({
 		{ name = 'cmdline' },
 		{ name = 'cmp_tabnine' },
 		{ name = 'codeium' },
-		{ name = 'treesitter' },
-		-- { name = 'luasnip' }, -- For luasnip users.
+		-- { name = 'treesitter' },
+		{ name = 'luasnip' },
 		-- 搜索文件提供关键字
 		-- 太乱了  没什么卵用的
 		-- { name = 'rg' },
-		-- { name = 'path' },
+		{ name = 'path' },
         -- 有点乱 无用的多过有用的
 		-- { name = 'devicons' },
 		{ name = 'nvim_lua' },
-		-- { name = 'nvim_lsp' },
-		-- { name = 'nvim_lsp_document_symbol' },
-		-- { name = 'nvim_lsp_signature_help' },
+		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lsp_document_symbol' },
+		{ name = 'nvim_lsp_signature_help' },
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
 		{
