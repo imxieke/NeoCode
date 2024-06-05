@@ -31,14 +31,14 @@ keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
 -- Use <c-j> to trigger snippets
-keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+-- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 -- Use <c-space> to trigger completion
-keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+-- keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
-keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
+-- keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
+-- keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
 
 -- GoTo code navigation
 keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})

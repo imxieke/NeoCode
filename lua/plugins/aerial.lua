@@ -1,6 +1,5 @@
 -- stevearc/aerial.nvim
 -- Call the setup function to change the default behavior
-require("aerial").setup(-- Call the setup function to change the default behavior
 require("aerial").setup({
   -- Priority list of preferred backends for aerial.
   -- This can be a filetype map (see :help aerial-filetype-map)
@@ -126,14 +125,14 @@ require("aerial").setup({
   highlight_closest = true,
 
   -- Highlight the symbol in the source buffer when cursor is in the aerial win
-  highlight_on_hover = false,
+  highlight_on_hover = true,
 
   -- When jumping to a symbol, highlight the line for this many ms.
   -- Set to false to disable
   highlight_on_jump = 300,
 
   -- Jump to symbol in source window when the cursor moves
-  autojump = false,
+  autojump = true,
 
   -- Define symbol icons. You can also specify "<Symbol>Collapsed" to change the
   -- icon when the tree is collapsed at that symbol, or "Collapsed" to specify a
@@ -141,7 +140,7 @@ require("aerial").setup({
   -- "nerd_font" option below.
   -- If you have lspkind-nvim installed, it will be the default icon set.
   -- This can be a filetype map (see :help aerial-filetype-map)
-  icons = {},
+--   icons = {},
 
   -- Control which windows and buffers aerial should ignore.
   -- Aerial will not open when these are focused, and existing aerial windows will not be updated
@@ -353,4 +352,4 @@ require("aerial").setup({
     -- How long to wait (in ms) after a buffer change before updating
     update_delay = 300,
   },
-}))
+})

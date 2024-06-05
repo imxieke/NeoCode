@@ -63,22 +63,23 @@ null_ls.setup({
 -- }
 
 -- lspconfig.sqls.setup {
--- 	on_attach = function(client, bufnr)
--- 		require('sqls').on_attach(client, bufnr)
--- 	end
--- }
+    -- 	on_attach = function(client, bufnr)
+    -- 		require('sqls').on_attach(client, bufnr)
+    -- 	end
+    -- }
 
-lspconfig.intelephense.setup({
-	capabilities = capabilities,
-	cmd = { "intelephense", "--stdio" },
-	filetypes = { "php", "php5" },
-	root_dir = util.root_pattern("composer.json"),
-	on_attach = function(client, bufnr)
-		-- Enable (omnifunc) completion triggered by <c-x><c-o>
-		-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-		-- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-		-- Here we should add additional keymaps and configuration options.
-	end,
+    lspconfig.intelephense.setup({
+        capabilities = capabilities,
+        cmd = { "intelephense", "--stdio" },
+        filetypes = { "php", "php5" },
+        root_dir = util.root_pattern("composer.json"),
+        on_attach = function(client, bufnr)
+            -- Enable (omnifunc) completion triggered by <c-x><c-o>
+            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+            -- 	on_attach = require("aerial").on_attach,
+		    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+		    -- Here we should add additional keymaps and configuration options.
+	    end,
 	flags = {
 		debounce_text_changes = 150,
 	}
@@ -179,13 +180,6 @@ lspconfig.pylsp.setup {
 --         }
 --     }
 -- })
-
-
-require("neodev").setup({
-	lspconfig = {
-		cmd = { "lua-language-server" }
-	},
-})
 
 -- lspconfig.sumneko_lua.setup(luadev)
 

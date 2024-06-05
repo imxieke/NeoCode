@@ -188,11 +188,11 @@ telescope.setup {
 		-- },
 		aerial = {
 		-- Display symbols as <root>.<parent>.<symbol>
-		show_nesting = {
-			["_"] = false, -- This key will be the default
-			json = true, -- You can set the option for specific filetypes
-			yaml = true,
-		},
+		    show_nesting = {
+			    ["_"] = false, -- This key will be the default
+			    json = true, -- You can set the option for specific filetypes
+			    yaml = true,
+		    },
 		},
 		lsp_handlers = {
 			disable = {
@@ -244,7 +244,7 @@ telescope.load_extension("noice")
 telescope.load_extension('aerial')
 -- radyz/telescope-gitsigns
 telescope.load_extension('git_signs')
-telescope.load_extension('luasnip')
+-- telescope.load_extension('luasnip')
 -- telescope.extensions.live_grep_args.live_grep_args()
 -- telescope.load_extension('media_files')
 -- require'telescope'.extensions.ultisnips.ultisnips{}

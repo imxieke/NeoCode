@@ -26,13 +26,6 @@ require("lazy").setup({
     -- Quickstart configs for Nvim LSP
     -- Depends By hrsh7th/nvim-cmp
 	'neovim/nvim-lspconfig',
-    -- Portable package manager for Neovim that runs everywhere Neovim runs.
-    -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
-	-- language server protocol installer
-	-- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
-	'williamboman/mason.nvim',
-	'williamboman/mason-lspconfig.nvim',
-
 	-- Nvim Treesitter configurations and abstraction layer
 	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 	-- Show code context
@@ -97,14 +90,14 @@ require("lazy").setup({
     -- 后缀为 .UltiSnips 的 UltiSnips snippet 关键字
     -- 目录含有 snippets/*.json (prefix body description 关键字) 为 VSCode 格式
 	-- 支持 SnipMate VSCode LSP
-	{
-		"L3MON4D3/LuaSnip",
-		-- follow latest release.
-		-- install jsregexp (optional!).
-		build = "make install_jsregexp"
-	},
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	-- follow latest release.
+	-- 	-- install jsregexp (optional!).
+	-- 	build = "make install_jsregexp"
+	-- },
 	-- -- luasnip completion source for nvim-cmp
-	'saadparwaiz1/cmp_luasnip',
+	-- 'saadparwaiz1/cmp_luasnip',
 
 	-- ############################ Code Analysis ################################
 	-- lua GUI lib
@@ -162,7 +155,7 @@ require("lazy").setup({
     -- Create key-bindings and watch them with telescope 🔭
     "LinArcX/telescope-command-palette.nvim",
     "radyz/telescope-gitsigns",
-    "benfowler/telescope-luasnip.nvim",
+    -- "benfowler/telescope-luasnip.nvim",
 
 	-- ######################### File && Search ######################################
 	-- Improved fzf.vim written in lua
@@ -186,7 +179,7 @@ require("lazy").setup({
 	-- ############################ Snippets #########################################
 	-- VSCode Format
 	-- Snippets collection for a set of different programming languages.
-	'rafamadriz/friendly-snippets',
+	-- 'rafamadriz/friendly-snippets',
 
 	-- ################################ Utils ########################################
 	-- improve the default vim.ui interfaces
@@ -218,21 +211,20 @@ require("lazy").setup({
     -- null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     -- 似乎还可以提供 snippets 功能 luasnip
     "nvimtools/none-ls.nvim",
-
-    -- 💻 Dev setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
-    -- 自动完成 函数等信息 hover doc
-    "folke/neodev.nvim",
 	-- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
     "sindrets/diffview.nvim",
     -- Async Language Server Protocol plugin for vim8 and neovim.
     "prabirshrestha/async.vim",
+
+    -- ########################################### Outline ###################################################################
 	-- A code outline window for skimming and quick navigation
 	'stevearc/aerial.nvim',
 	-- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
 	'simrat39/symbols-outline.nvim',
+    -- #######################################################################################################################
+
 	-- A simple wrapper around :mksession. 历史会话记录
 	'Shatur/neovim-session-manager',
-
 	-- 功能比较简陋不支持按键 需自定义命令或按键 详见 :help litee-filetree.nvim
 	-- A framework for building Neovim plugins
 	'ldelossa/litee.nvim',

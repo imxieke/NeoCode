@@ -117,7 +117,7 @@ keymap("i", "<A-d>", "<CMD>:TroubleToggle<CR>")
 --     expr = true
 -- })
 
--- TODO: 很尴尬 不可以直接 map 设置 insert 模式不生效 待修复
+-- TODO: 不可以直接 map 设置 insert 模式不生效 待修复
 vim.keymap.set({"i", "n"}, '<A-/>', require('Comment.api').call('toggle.linewise.current', 'g@$'), {
     expr = true
 })
