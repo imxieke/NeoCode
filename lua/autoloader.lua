@@ -57,7 +57,7 @@ require 'plugins/noice'
 require 'plugins/todo'
 require 'plugins/bufferline'
 
-require 'plugins/symbols_outline'
+require 'plugins/outline'
 require 'plugins/buddly'
 require 'plugins/neogit'
 require 'plugins/vgit'
