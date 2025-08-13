@@ -1,24 +1,20 @@
-require("codeium").setup({})
-
--- Tabnine
-local tabnine = require('cmp_tabnine.config')
-
--- Customize cmp highlight group
-vim.api.nvim_set_hl(0, "CmpItemKindTabNine", {fg ="#6CC644"})
-
-tabnine:setup({
-	max_lines = 10,
-	max_num_results = 20,
-	sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = '..',
-	-- ignored_file_types = {
-		-- default is not to ignore
-		-- uncomment to ignore in lua:
-		-- lua = truekaish
-	-- },
-	show_prediction_strength = false
-    -- min_percent = 0
+require("codeium").setup({
+	workspace_root = {
+		use_lsp = true,
+		find_root = nil,
+		paths = {
+			".bzr",
+			".git",
+			".hg",
+			".svn",
+			"_FOSSIL_",
+			"package.json",
+			"composer.json",
+			"artisan",
+			"think",
+			"webman",
+		}
+	}
 })
 
 -- cmp
@@ -26,7 +22,6 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local types = require("cmp.types")
 local str = require("cmp.utils.str")
--- local compare = require('cmp_tabnine.compare')
 
 local has_words_before = function()
 	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
@@ -56,7 +51,6 @@ local lsp_menu = {
 	nvim_lua 	= "[Lua]",
 	nvim_lsp 	= "[LSP]",
 	luasnip 	= "[LUASnip]",
-	cmp_tabnine = "[Tabnine]",
 	path 		= "[Path]",
 	emoji 		= "[Emoji]",
 	neorg 		= "[Neorg]"
@@ -112,7 +106,7 @@ cmp.setup({
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 			ellipsis_char = '...',
 			symbol_map = {
-				Codeium = ""
+				Codeium = " "
 			},
 
             -- Deprecated
@@ -181,7 +175,6 @@ cmp.setup({
 		{ name = 'tags' },
 		{ name = 'ctags' },
 		{ name = 'cmdline' },
-		{ name = 'cmp_tabnine' },
 		{ name = 'codeium' },
 		-- { name = 'treesitter' },
 		-- { name = 'luasnip' },
@@ -220,7 +213,6 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
-			require('cmp_tabnine.compare'),
 			cmp.config.compare.offset,
 			cmp.config.compare.exact,
 			cmp.config.compare.score,

@@ -6,82 +6,89 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local home = os.getenv("HOME")
 local pwd = os.getenv("PWD")
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+
 
 vim.cmd('syntax on') -- enable syntax  highlighting
 vim.cmd('filetype plugin indent on') -- 开启文件类型侦测 根据侦测到的不同类型加载对应的插件
 vim.cmd('filetype detect') -- detect the file type again
 
 -- vim.g.mapleader      = '\\'
-vim.opt.number = true  			-- show line numbers
-vim.opt.relativenumber = false   	-- show relative line numbers 行数会跟着上下移动变化
+opt.number = true  			-- show line numbers
+vim.o.numberwidth = 2
+opt.relativenumber = false   	-- show relative line numbers 行数会跟着上下移动变化
 -- 编码
-vim.opt.encoding = 'utf-8' -- 文件编码
-vim.opt.fileencoding = 'utf-8' -- 制表符占用空格数
+opt.encoding = 'utf-8' -- 文件编码
+opt.fileencoding = 'utf-8' -- 制表符占用空格数
+
+-- Indenting
 -- 将制表符扩展为空格
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
+opt.expandtab = true
+opt.tabstop = 4
 -- 让 vim 把连续数量的空格视为一个制表符
-vim.opt.softtabstop = 4
+opt.softtabstop = 4
 -- 格式化时制表符占用空格数
-vim.opt.shiftwidth = 4
-vim.opt.showmatch = true -- 高亮匹配括号
-vim.opt.title = false -- tab title as file name
+opt.shiftwidth = 4
+opt.showmatch = true -- 高亮匹配括号
+opt.title = false -- tab title as file name
 -- Enable persistent undo
-vim.opt.undofile = true
-vim.opt.emoji = true -- enable emoji
-vim.opt.autoread = true -- 文件自动更新
-vim.opt.clipboard="unnamed" -- Clipboard Support
-vim.opt.hlsearch = true -- highlight text while searching
+opt.undofile = true
+opt.emoji = true -- enable emoji
+opt.autoread = true -- 文件自动更新
+opt.clipboard="unnamed" -- Clipboard Support
+opt.hlsearch = true -- highlight text while searching
 -- TODO: 帮助文档语言 似乎对 neovim 无效 也许是文档缺失 待确认
-vim.opt.helplang = 'cn'
-vim.opt.hidden = false -- Allow switching from unsaved buffer
-vim.opt.wrap = false -- 自动折行
-vim.opt.modeline = true -- Allow modeline
--- vim.opt.lazyredraw = true -- Use lazy redraw
-vim.opt.smartindent = true -- 智能缩进
-vim.opt.autoindent = true -- 自动缩进
-vim.opt.smarttab = true -- Make tabbing smarter
-vim.opt.foldenable = true -- 文件折叠
-vim.opt.history = 1000 -- 保留历史记录的存储数量
-vim.opt.smartcase = true -- 有一个或以上大写字母时仍大小写敏感
-vim.opt.ignorecase = true -- 搜索忽略大小写
-vim.opt.incsearch = true -- Show search results while typing 开启增量搜索
-vim.opt.showcmd = true
+opt.helplang = 'cn'
+opt.hidden = false -- Allow switching from unsaved buffer
+opt.wrap = false -- 自动折行
+opt.modeline = true -- Allow modeline
+-- opt.lazyredraw = true -- Use lazy redraw
+opt.smartindent = true -- 智能缩进
+opt.autoindent = true -- 自动缩进
+opt.smarttab = true -- Make tabbing smarter
+opt.foldenable = true -- 文件折叠
+opt.history = 1000 -- 保留历史记录的存储数量
+opt.smartcase = true -- 有一个或以上大写字母时仍大小写敏感
+opt.ignorecase = true -- 搜索忽略大小写
+opt.incsearch = true -- Show search results while typing 开启增量搜索
+opt.showcmd = true
 vim.cmd('set nocompatible') -- 禁用vi兼容模式
 -- vim.cmd('set nobackup') -- 设置取消备份 禁止临时文件生成
-vim.opt.backup = false
+opt.backup = false
 vim.cmd('set nowritebackup') -- 设置取消备份 禁止临时文件生成
-vim.opt.writebackup = false
--- vim.opt.noswapfile=true
+opt.writebackup = false
+-- opt.noswapfile=true
 vim.cmd('set noswapfile') -- no swap file generate
--- vim.opt.modeline     = true
-vim.opt.list = true -- 显示不可见字符 如 tab
+-- opt.modeline     = true
+opt.list = true -- 显示不可见字符 如 tab
 -- vim.g.nolist         = true 		-- 显示不可见字符 如 tab
 -- vim.cmd('set nolist')
-vim.opt.mouse = "a" -- enable mouse interaction
-vim.opt.modifiable = true
+opt.mouse = "a" -- enable mouse interaction
+opt.modifiable = true
 -- 似乎是自动更新文件时间间隔 ms
-vim.opt.updatetime = 300
-vim.opt.wildmenu = true -- vim命令自动补全
+opt.updatetime = 120
+opt.wildmenu = true -- vim命令自动补全
 -- 自动补全 cmp 依赖
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- =================== UI ====================================================
-vim.opt.laststatus = 2 -- Always show statusline
-vim.opt.showtabline = 2 -- Always show tabline
-vim.opt.termguicolors = true -- enable true colors support
-vim.opt.cursorline = true -- 突出显示当前行
-vim.opt.cursorcolumn = false -- 突出显示当前列
-vim.opt.ruler = true -- 显示光标位置
-vim.opt.signcolumn = 'yes' -- Always show signcolumn or it would frequently shift, make signcolumn background color transparent
-vim.opt.pumheight = 10 -- Make popup menu smaller
--- vim.opt.splitbelow    = true 	-- Horizontal splits will be below
--- vim.opt.splitright    = true 	-- Vertical splits will be to the right
--- vim.opt.conceallevel  = 0 		-- Don't hide (conceal) special symbols (like `` in markdown)
--- vim.opt.colorcolumn   = '+1' 	-- Draw colored column one step to the right of desired maximum width
--- vim.opt.linebreak     = true 	-- Wrap long lines at 'breakat' (if 'wrap' is set)
--- vim.opt.shortmess     = 'aoOFc' -- Disable certain messages from |ins-completion-menu|
--- vim.opt.showmode      = false 	-- Don't show mode in command line
+opt.laststatus = 2 -- Always show statusline
+opt.showtabline = 2 -- Always show tabline
+opt.termguicolors = true -- enable true colors support
+opt.cursorline = true -- 突出显示当前行
+opt.cursorcolumn = false -- 突出显示当前列
+opt.ruler = true -- 显示光标位置
+opt.signcolumn = 'yes' -- Always show signcolumn or it would frequently shift, make signcolumn background color transparent
+opt.pumheight = 10 -- Make popup menu smaller
+-- opt.splitbelow    = true 	-- Horizontal splits will be below
+opt.splitright    = true 	-- Vertical splits will be to the right
+-- opt.conceallevel  = 0 		-- Don't hide (conceal) special symbols (like `` in markdown)
+-- opt.colorcolumn   = '+1' 	-- Draw colored column one step to the right of desired maximum width
+-- opt.linebreak     = true 	-- Wrap long lines at 'breakat' (if 'wrap' is set)
+-- opt.shortmess     = 'aoOFc' -- Disable certain messages from |ins-completion-menu|
+opt.showmode      = false 	-- Don't show mode in command line
 
 -- vim.cmd('set t_Co=256') -- 指定配色方案为256
 

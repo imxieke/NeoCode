@@ -39,7 +39,6 @@ local map = function(mode, keys, cmd, opts)
     end
 	vim.keymap.set(mode, keys, cmd, opts)
 end
-
 -- 重置按键位初始状态
 map({'i','n'},'<TAB>','<TAB>')
 
